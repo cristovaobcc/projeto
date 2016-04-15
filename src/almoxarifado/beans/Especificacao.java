@@ -36,18 +36,15 @@ public class Especificacao {
 	}
 
 	/**
-	 * Duas especificações são iguais quando possuem os mesmos nomes modificador.
+	 * Duas especificações são iguais quando possuem os mesmos nomes modificadores.
 	 * 
 	 * @param comparado
 	 * @return
 	 */
 	public boolean equals(Especificacao comparado){
 		boolean resultado = false;
-		
 		if (comparado != null)
-			resultado = this.nomeModificador.equals(comparado.getNomeModificador()) ? 
-					true : false ;
-		
+			resultado = this.nomeModificador.equals(comparado.getNomeModificador());
 		return resultado;
 	}
 
