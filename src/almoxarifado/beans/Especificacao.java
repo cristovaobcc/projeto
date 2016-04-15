@@ -50,5 +50,16 @@ public class Especificacao {
 		
 		return resultado;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Especificacao [nomeModificador=" + nomeModificador + ", caracteristicasFisicas="
+				+ caracteristicasFisicas + ", Observacao=" + Observacao + "]";
+	}
+	
+	
 	
 }
