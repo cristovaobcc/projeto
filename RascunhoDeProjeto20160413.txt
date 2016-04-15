@@ -1,0 +1,23 @@
+Objetivo:
+	-> Implementar um programa de gestão de materiais de expediente
+	para um almoxarifado de empresa pública.
+
+O que o programa vai oferecer:
+	para o usuário-cliente:
+		-> Cadastrar material adquirido pela empresa;
+		-> Consultar material em estoque;
+		-> Dar baixar em material solicitado;
+		-> Atualizar material com novos dados;
+		-> Solicitar compra de material segundo critérios a ser definido;
+		-> Receber solicitação de material de usuário-solicitante;
+		-> Emitir guia de entrega de pedido;
+		-> Definir Estoque mínimo/máximo de cada material;
+		-> Relatórios de controle de estoque que informam:
+			->> Estado de estoque de materiais cadastrados;
+			->> Consumo médio mensal de material;
+			->> Materiais que se encontram em estoque mínimo/máximo;
+	
+	para o usuário-solicitante:
+		-> Gerar guia de solicitação de material ao almoxarifado;
+		-> Selecionar material e quantidade de material;
+		-> Emitir guia de solicitação de material;

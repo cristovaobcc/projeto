@@ -1,0 +1,294 @@
+Objetivo:
+	-> Implementar um programa de gestão patrimonial
+		que auxilie a gestão de bens de consumo
+		para um almoxarifado de empresa pública.
+
+Justificativa:
+	-> O projeto é fruto de uma atividade a ser 
+		desenvolvida na disciplina: implementação
+		de um projeto que contemple todos o conteúdo
+		abordado na disciplina IP II.
+		
+
+Escopo do programa:
+	-> Gereciamento de bens de consumo de empresa 
+		pública a ser executado por dois tipos de 
+		usuários:
+			cliente e administrador.
+
+	-> A implementação do programa deve seguir o que 
+		está estabelecido na apostila para gestão de
+		almoxarifado.
+Fonte:
+	-> Apostila fornecida pelo TCEES que se baseia empresa
+		em leis federais/estaduais estabelecendo critérios
+		de gestão patrimonial
+		(ainda não consegui copiar o link)
+	-> (CONSULTAR) Lei 4320/64 traz critérios de classificação, contabilização, 
+		responsabilização pela guarda dos materiais , além dos controles analíticos 
+		e a obrigatoriedade do levantamento de inventários para o confronto com 
+		os registros contábeis. Isto pode ajudar a definir as classes básicas?
+	-> (CONSULTAR)  Portaria Conjunta Secretaria do Tesouro Nacional/Secretaria do Orçamento Federal
+		Nº 03/2008(STN/SOF), item 9, trata de procedimentos típicos da administração pública
+		visando a padronização da classificação das despesas em todas as esferas de
+		governo. São aquisições que geram dúvidas quanto a sua real classificação. A
+		classificação padronizada nos três níveis de governo, visa atender a consolidação
+		exigida pela Lei de Responsabilidade Fiscal.
+Outras notas:
+	-> Texto que pode dar ideia de onde esse programa se encaixa no contexto
+		de gestão patrimonial:
+		Missão do setor de patrimônio: “Suprir as unidades administrativas de bens materiais 
+		necessários e indispensáveis para que elas realizem seus objetivos, controlando e
+		protegendo os bens públicos e patrocinando seu uso racional”.
+		A autoridade competente do Órgão Público/Entidade deve instituir a gestão
+		patrimonial, precisando para isso:
+			Definir atribuições;
+			Estabelecer responsabilidades;
+			Estabelecer metodologia;
+			Institucionalizar a gestão patrimonial;
+			Suprir dos recursos necessários. (É AQUI ONDE O PROGRAMA ENTRA)
+		São Recursos Necessários:
+			Mão-de-obra: servidores a disposição do setor;
+			Management: gestão.
+			Máquinas/equipamentos: computadores; mesas e equipamentos; (É AQUI ONDE O PROGRAMA ENTRA)
+			Meio-ambiente: local onde vai funcionar; local de armazenagem;
+			Medidas: estabelecimento de quantidade, qualidade, padronização;
+			Métodos: conjunto das atividades que comporão as gestões de patrimônio e
+			almoxarifado. (É AQUI ONDE O PROGRAMA ENTRA)
+		
+		Material é a designação genérica de equipamentos, componentes, acessórios,
+		sobressalentes, matéria-prima, etc.
+		Para fins de classificação da despesa orçamentária, os materiais são assim
+		classificados:
+			a) Material de consumo e
+			b) Material permanente.
+			
+		6.1 Material Permanente x Material de Consumo
+			Entende-se como material de consumo e material permanente:
+				a) Material de Consumo, aquele que, em razão de seu uso corrente e da definição da
+					Lei nº 4.320/64, perde normalmente sua identidade física e/ou tem sua utilização
+					limitada a dois anos;
+				b) Material Permanente, aquele que, em razão de seu uso corrente, não perde a sua
+					identidade física, e/ou tem uma durabilidade superior a dois anos.
+			Além disso, na classificação da despesa com aquisição de material devem ser adotados
+			alguns parâmetros que, tomados em conjunto, distinguem o material permanente do
+			material de consumo.
+			6.1.1 É considerado material de consumo:
+				a) Critério da Durabilidade – Se em uso normal perde ou tem reduzidas as suas
+					condições de funcionamento, no prazo máximo de dois anos;
+				b) Critério da Fragilidade – Se sua estrutura for quebradiça, deformável ou
+					danificável, caracterizando sua irrecuperabilidade e perda de sua identidade ou
+					funcionalidade;
+				c) Critério da Perecibilidade – Se está sujeito a modificações (químicas ou
+					físicas) ou se deteriore ou perca sua característica pelo uso normal;
+				d) Critério da Incorporabilidade – Se está destinado à incorporação a outro
+					bem, e não pode ser retirado sem prejuízo das características do principal. Se
+					com a incorporação houver alterações significativas das funcionalidades do bem
+					principal e/ou do seu valor monetário, será considerado permanente;
+				e) Critério da Transformabilidade – Se foi adquirido para fim de transformação;
+				f) Critério da Finalidade – Se o material foi adquirido para consumo imediato ou
+					para distribuição gratuita
+				g) Classificação de despesa com aquisição de pen-drive, canetas ópticas, token e
+					similares.
+				A aquisição será classificada como material de consumo, na natureza da despesa
+				339030, tendo em vista que são abarcadas pelo critério da fragilidade. Os bens serão
+				controlados como materiais de uso duradouro, por simples relação-carga
+		
+		1. Conceito de Almoxarifado:
+			Unidade administrativa que tem por finalidade suprir de material, na quantidade certa,
+			no momento certo e na qualidade certa, pelo menor custo possível, todas as demais
+			unidades dos órgãos ou entidade para que possam cumprir sua missão.
+			Curiosidade:
+				A origem da palavra almoxarifado teve origem na Península Ibérica (765 a
+				1031), quando ocorreu a invasão árabe. O vocábulo al-xarif designava a pessoa
+				de confiança do Sultão, responsável pela guarda dos bens do seu senhor.
+		
+		“A classificação(ESTABELECE REGRAS DE HERANÇA) é o processo de aglutinação de 
+			materiais(CLASSE) por características semelhantes. Grande parte do sucesso 
+			no gerenciamento de estoques depende fundamentalmente de bem classificar os materiais da empresa.”. 
+			3.1) Por tipo de demanda:
+				a) materiais de estoque
+					“São materiais que devem existir em estoque e para os quais são
+					determinados critérios e parâmetros de ressuprimento automático, com
+					base na demanda prevista” [...]
+					Exemplos:
+						a. 30.07 – Gênero de alimentação;
+						b. 30.09 – Material farmacológico;
+						c. 30.16 – Material de expediente;
+						d. 30.17 – Material de processamento de dados;
+						e. 30.21 – Material de copa e cozinha;
+						f. 30.22 – Material de limpeza e produtos de higienização.
+				b) materiais não de estoque
+					“São materiais de demanda imprevisível para os quais não são
+					definidos parâmetros para o ressuprimento automático.” Sua
+					aquisição somente pode ser efetuada por solicitação direta do
+					usuário.
+					Exemplos
+						a. 30.52 – Equipamentos e material permanente
+						b. 30.XX – Material de expediente personalizado.
+				c) materiais críticos
+					São materiais de reposição específica de um equipamento, de demanda
+					imprevisível. A decisão de estocar ou não tem por base a análise do risco que a
+					produção corre, caso esses materiais não estejam disponíveis quando
+					necessário.
+					Exemplo:
+					30.28 – Material de proteção e segurança.
+			3.2) Perecibilidade (perder propriedades físico-quimicas)
+				Classifica o material de acordo com sua probabilidade de perecimento ou não,
+				facilitando recomendações quanto sua preservação, sua adequada embalagem,
+				além de seu controle quanto: a) determinação dos lotes de compras; b) o
+				adequado armazenamento e manuseio; c) programação de revisões
+				periódicas para detectar falhas de estocagem e baixa de materiais sem
+				condições de utilização.
+			3.3) Periculosidade (oferecem riscos às pessoas e ao patrimônio)
+				São produtos químicos e gases que possuem incompatibilidade com outros produtos,
+				devendo por tanto ter tratamento especial quanto manuseio, transporte e
+				armazenamento.
+			
+			4. Especificação de Material	
+				A especificação do material é a “descrição das características de um material, com
+				finalidade de identificá-lo e distinguí-lo de seus similares”.
+				A descrição padronizada de um material, obedece a determinados critérios racionais,
+					entre os quais merecem destaque:
+					a) a denominação deverá, em princípio, ser sempre no singular;
+					b) a denominação deverá prender-se ao material especificamente e não a sua
+						forma de embalagens, apresentação ou uso.
+				4.3 Estrutura da especificação:
+					Nome básico: primeiro termo da especificação: lâmpada, sabão)
+					Nome modificador: termo complementar: lâmpada fluorescente; sabão líquido.
+					Características físicas: propriedades físicas, densidade, peso específico,
+						granulometria, viscosidade, dureza, resistência, sabor
+					Unidade metrológica – unidade de fornecimento (unidade de fornecimento x
+						unidade de controle da empresa)
+					Medidas – hp, cv (potência), hz (freqüência), V (voltagem)
+					Característica de fabricação: acabamento, processo de fabricação.
+					Característica de operação: garantias exigidas, testes a serem executados,
+						testes de aceitação.
+					Cuidados com relação ao manuseio e armazenagem: devem ser fornecidos
+						todos os detalhes sobre manuseio, transporte e precauções com relação a
+						preservação e armazenagem dos materiais.
+			
+			5. Atividades Básicas de Almoxarifado
+				As principais atividades de um almoxarifado são basicamente as seguintes:
+					Recebimento;
+					Estocagem e
+					Distribuição
+					
+			6. Atividade de Recebimento
+				"Conjunto de operações que envolvem a identificação do material
+				recebido, o confronto do documento fiscal com o pedido, a inspeção
+				qualitativa e quantitativa do material e a aceitação formal do
+				mesmo".
+				
+				Documentos hábeis para o recebimento provisório são:
+					Nota Fiscal, Fatura e Nota Fiscal/Fatura;
+					Termos de Cessão ou de Doação;
+					Guia de Remessa de Material ou
+					Nota de Transferência.
+			
+			7. Atividades de Estocagem
+				7.6 Codificação de materiais.
+					“Consiste em ordenar os materiais da empresa segundo um plano metódico e
+					sistemático.”
+					Define uma catalogação de todos os materiais componentes do estoque da entidade.
+					Agrupa os materiais segundo sua forma, dimensão, peso, tipo, uso, etc., buscando
+					correta especificação.
+				7.6.1 Formação do código do material:
+						As Portarias Nº 448/02-STN (Classificação da despesa) e N.º 49/08TCEES (alteração
+						do Plano de Contas SISAUD), e o programa Sapiens formam a codificação dos
+						materiais do almoxarifado do TCEES.
+						A Portaria 448/02-STN faz a classificação até o elemento de despesa. Ex. 3.3.3.90.30 –
+						Material de Consumo. A Portaria 49/08-TCEES, acrescenta o sub elemento da
+						despesa. Exemplo: 3.3.3.90.30.16 – Material de Expediente. E a codificação é
+						complementada pelo código do material oferecido pelo sistema Sapiens.
+						Grupo – define o elemento de despesa a que pertence o material.
+						30.00 – Material de Consumo;
+						31.00 – Material para Premiações
+						32.00 – Material Distribuição Gratuita
+						Família (subgrupo) – é a família a que pertence o material (Portaria nº 49/08).
+						30.01 – Combustíveis e lubrificantes automotivos
+						30.07 – Gênero de alimentação
+						30.16 – Material de expediente
+						Código - é a especificação do material (modelo, tamanho, cor, etc.) (Sistema Sapiens)
+						30.16.XXXX – o número do item é fornecido pelo sistema de almoxarifado, quando do
+						cadastro do material.
+						Exemplos
+						1. Material 30.16.0053.
+						30. Material de Consumo (grupo).
+						30.16.0000 - Material de expediente (família).
+						30.16.0053 - Caneta esferográfica azul (código)
+						
+			8. Distribuição do Material
+				“Conjunto de operações próprias relacionadas com a expedição do
+				material, que envolve a acumulação do material recebido da estocagem, a
+				embalagem adequada e a entrega ao requisitante.” SANTOS (2003)
+				8.1 Requisição do Material
+					A requisição é o documento que permite a baixa do material em estoque.
+					É um documento oficial, deverá conter no mínimo:
+					- descrição padronizada do material;
+					- ser assinado por pessoa autorizada;
+					- constar quantidade dentro da necessidade do requisitante, dentro dos padrões
+					previamente estabelecidos pelo almoxarifado.
+			
+			10. Controle Gerencial do Estoque
+				Conjunto de ações que visa proteger os ativos, evitar desperdícios, perdas por
+				obsolescência, perda de validade e, principalmente, evitar que o processo produtivo
+				sofra solução de continuidade por falta do material na quantidade certa, na qualidade
+				certa, no prazo certo e pelo menor custo possível.
+				Visa:
+				Identificar o intervalo de aquisição para cada item;
+				A quantidade de ressuprimento;
+				Manter os materiais estocados em níveis compatíveis com o consumo do órgão
+				ou entidade;
+				Identificar itens inativos(não movimentados em certo período considerado) para
+				triagem e desfazimento
+				É manter o equilíbrio do material disponível com o consumo, por meio de
+				técnicas e dados históricos, de forma econômica, estabelecendo um processo de
+				reposição e controle
+				É decidir quando comprar e quanto comprar.
+			
+			11. Renovação do Estoque – Ressuprimento
+				É a decisão de se estabelecer quanto compra e quando comprar.
+			
+			13. Técnica Ponto de Pedido = PP
+					O ressuprimento está atrelado aos seguintes fatores:
+					- Consumo médio mensal - C
+					Média dos últimos 12 meses. Levantado através de dados históricos.
+					- Tempo de aquisição – T. Período entre o envio do pedido e a chegada do
+					material. É bom lembrar que no setor público, deve-se observa o lapso de tempo
+					para a realização da licitação, incluindo os prazos recursais.
+					- Intervalo de aquisição – I. Período entre duas aquisições. É política do gestor.
+					Ele é quem determina quantas vezes pretende realizar o processo licitatório para
+					aquisição de materiais.
+					- Estoque mínimo ou de segurança – Em. Quantidade para atender a demanda
+					em caso de atraso na entrega.
+					- Estoque máximo – EM. Quantidade máxima admissível em função de espaço,
+					disponibilidade financeira, intervalo e tempo de aquisição, perecimento,
+					obsoletismo etc.
+					- Ponto de Pedido ou de ressuprimento – Pp. Ao ser atingido, deve-se,
+					mediatamente iniciar os procedimentos de aquisição.
+					- Quantidade a ressuprir – Q. Quantidade a ser adquirida para recompor o
+					estoque máximo.
+					Fórmulas da técnica Ponto de Pedido
+					- Consumo médio mensal - C = Consumo anual/12 meses
+					- Estoque mínimo – Em = C x fator 0,25 a 0,5T
+					- Estoque máximo – EM = Em + C x I (período entre duas aquisições)
+					- Ponto de pedido – Pp = Em + C x T
+					- Quantidade a ressuprir – Q = C x I
+					- Tempo de aquisição = T (do pedido a chegada do material)
+				
+=> Classes:
+	-> Usuário
+		campos: id
+				nome
+				senha
+	-> Material: 
+		campos: id
+				nome
+				Caracteristica
+				LocalizaçãoNoEstoque
+
+=> Notas extras:
+	Focar na distribuição de material de expediente.
+	Verificar a viabilidade de implementar um módulo de controle da atividade de recebimento.
+	
