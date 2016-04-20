@@ -4,13 +4,14 @@ import almoxarifado.beans.Material;
 
 public class RepositorioMateriais {
 	
+	private static final int TAMANHO = 100;
 	private Material[] materiais;
 	private int qtde;
 	private static RepositorioMateriais instance;
 	
 	private RepositorioMateriais()
 	{
-		this.materiais = new Material[100];
+		this.materiais = new Material[TAMANHO];
 		this.qtde = 0;
 	}
 	
