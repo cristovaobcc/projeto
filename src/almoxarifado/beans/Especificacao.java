@@ -10,6 +10,9 @@ public class Especificacao {
 		this.caracteristicasFisicas = caracteristicasFisicas;
 		Observacao = observacao;
 	}
+	
+	public Especificacao() {
+	}
 
 	public String getNomeModificador() {
 		return nomeModificador;
