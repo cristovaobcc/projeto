@@ -15,7 +15,9 @@ public class Material {
 		this.esp = esp;
 		this.dataDeAquisicao = dataDeAquisicao;
 	}
-
+	// construtor default
+	public Material(){
+	}
 	/**
 	 * @return the nomeBasico
 	 */
