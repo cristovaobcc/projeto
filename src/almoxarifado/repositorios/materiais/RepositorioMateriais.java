@@ -89,7 +89,7 @@ public class RepositorioMateriais {
 	{
 		System.out.println("\n---- Método Listar de Repositorio materiais armazenados ----");
 		if (this.qtde == 0)
-			System.out.println("\nNão há li cadastrados!");
+			System.out.println("\nNão há materais cadastrados!");
 		else
 			for(Material m: this.materiais){
 				if (m != null)
