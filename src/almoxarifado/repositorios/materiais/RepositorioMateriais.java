@@ -86,7 +86,7 @@ public class RepositorioMateriais {
 	
 	public void listar()
 	{
-		System.out.println("\n---- Listando materiais armazenados ----");
+		System.out.println("\n---- Método Listar de Repositorio materiais armazenados ----");
 		if (this.qtde == 0)
 			System.out.println("\nNão há li cadastrados!");
 		else
