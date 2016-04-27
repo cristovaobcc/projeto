@@ -3,12 +3,17 @@ package almoxarifado.material.beans;
 public class Especificacao {
 	private String nomeModificador;
 	private String caracteristicasFisicas;
-	private String Observacao;
+	private String observacao;
+	private String marca;
+	private String unidadeDeMedida;
 	
-	public Especificacao(String nomeModificador, String caracteristicasFisicas, String observacao) {
-		this.nomeModificador = nomeModificador;
-		this.caracteristicasFisicas = caracteristicasFisicas;
-		Observacao = observacao;
+	public Especificacao(String nomeModificador, String caracteristicasFisicas, String obs, 
+			String marca, String unidMed) {
+		this.setNomeModificador(nomeModificador);
+		this.setCaracteristicasFisicas(caracteristicasFisicas);
+		this.setObservacao(obs);
+		this.setMarca(marca);
+		this.setUnidadeDeMedida(unidMed);
 	}
 	
 	public Especificacao() {
@@ -31,11 +36,27 @@ public class Especificacao {
 	}
 
 	public String getObservacao() {
-		return Observacao;
+		return observacao;
 	}
 
-	public void setObservacao(String observacao) {
-		Observacao = observacao;
+	public void setObservacao(String obs) {
+		observacao = obs;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getUnidadeDeMedida() {
+		return unidadeDeMedida;
+	}
+
+	public void setUnidadeDeMedida(String unidadeDeMedida) {
+		this.unidadeDeMedida = unidadeDeMedida;
 	}
 
 	/**
@@ -57,7 +78,7 @@ public class Especificacao {
 	@Override
 	public String toString() {
 		return "Especificacao [nomeModificador=" + nomeModificador + ", caracteristicasFisicas="
-				+ caracteristicasFisicas + ", Observacao=" + Observacao + "]";
+				+ caracteristicasFisicas + ", Observacao=" + observacao + "]";
 	}
 	
 	

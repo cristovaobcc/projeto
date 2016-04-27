@@ -184,7 +184,7 @@ public class RepositorioMateriais {
 		System.out.println("\nQuantidade: ");
 		int qtde = input.nextInt();
 		input.nextLine();
-		if (rep.inserir(new Material(nome, cod, qtde, null, data)))
+		if (rep.inserir(new Material(nome, cod, qtde, null, data, null)))
 			System.out.println("\n<<< operação feita com sucesso! >>>");
 		else{
 			System.out.println("\n>>> ERRO! <<<");

@@ -6,18 +6,19 @@ public class Material {
 	private int qtde;
 	private Especificacao esp;
 	private String dataDeAquisicao;
+	private String idCadastrador;
 	
-	public Material(String nomeBasico, String codigo, int qtde, Especificacao esp, String dataDeAquisicao) 
+	public Material(String nomeBasico, String codigo, int qtde, Especificacao esp, 
+			String dataDeAquisicao, String idCadastrador) 
 	{
-		this.nomeBasico = nomeBasico;
-		this.codigo = codigo;
-		this.qtde = qtde;
-		this.esp = esp;
-		this.dataDeAquisicao = dataDeAquisicao;
+		this.setNomeBasico(nomeBasico);
+		this.setCodigo(codigo);
+		this.setQtde(qtde);
+		this.setEsp(esp);
+		this.setDataDeAquisicao(dataDeAquisicao);
+		this.setIdCadastrador(idCadastrador);
 	}
-	// construtor default
-	public Material(){
-	}
+	
 	/**
 	 * @return the nomeBasico
 	 */
@@ -87,14 +88,31 @@ public class Material {
 	public void setDataDeAquisicao(String dataDeAquisicao) {
 		this.dataDeAquisicao = dataDeAquisicao;
 	}
-
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public String getIdCadastrador(String id){
+		return this.idCadastrador;
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
+	public void setIdCadastrador(String id){
+		this.idCadastrador = id;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Material [nomeBasico=" + nomeBasico + ", codigo=" + codigo + ", qtde=" + qtde + ", esp=" + esp
-				+ ", dataDeAquisicao=" + dataDeAquisicao + "]";
+				+ ", dataDeAquisicao=" + dataDeAquisicao + ", idCadstrador" + idCadastrador +"]";
 	}
 
 	/* 
