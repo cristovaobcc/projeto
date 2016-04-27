@@ -1,4 +1,4 @@
-package almoxarifado.beans;
+package almoxarifado.material.beans;
 
 public class Especificacao {
 	private String nomeModificador;

@@ -1,6 +1,6 @@
-package almoxarifado.repositorios.materiais;
+package almoxarifado.material.repositorio;
 import java.util.Scanner;
-import almoxarifado.beans.Material;
+import almoxarifado.material.beans.Material;
 
 public class RepositorioMateriais {
 	
@@ -15,13 +15,6 @@ public class RepositorioMateriais {
 		this.qtde = 0;
 	}
 	
-//	public static void setInstance(int qtde)
-//	{
-//		if (instance == null){
-//			getInstance();
-//		}
-//	}
-//	
 	public static RepositorioMateriais getInstance()
 	{
 		if (instance == null)

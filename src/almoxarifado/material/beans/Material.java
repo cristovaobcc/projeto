@@ -1,4 +1,4 @@
-package almoxarifado.beans;
+package almoxarifado.material.beans;
 
 public class Material {
 	private String nomeBasico;
