@@ -1,0 +1,7 @@
+|-> Como associar dados do id de UsuarioGestor ao material cadastrado:
+		Após o usuário se logar e o sistema identificar que ele é do tipo UsuarioGestor,
+		em algum controlador tenho que capturar apenas a ID do UsuarioGestor que acessou
+		o sistema e repassar ao material que ele está cadastrando;
+
+
+	
