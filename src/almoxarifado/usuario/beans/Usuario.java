@@ -8,7 +8,9 @@ public class Usuario {
 	
 	public Usuario(String id, String nome, String senha)
 	{
-		
+		this.setId(id);
+		this.setNome(nome);
+		this.setSenha(senha);
 	}
 
 	public String getId() {

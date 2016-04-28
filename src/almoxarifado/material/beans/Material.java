@@ -112,7 +112,7 @@ public class Material {
 	@Override
 	public String toString() {
 		return "Material [nomeBasico=" + nomeBasico + ", codigo=" + codigo + ", qtde=" + qtde + ", esp=" + esp
-				+ ", dataDeAquisicao=" + dataDeAquisicao + ", idCadstrador" + idCadastrador +"]";
+				+ ", dataDeAquisicao=" + dataDeAquisicao + ", idCadastrador=" + idCadastrador +"]";
 	}
 
 	/* 
