@@ -4,4 +4,8 @@
 		o sistema e repassar ao material que ele está cadastrando;
 
 
-	
+|-> Verificar a viabilidade de desenvolver uma parte do código que restaura materiais indevidamente 
+		removidos. Aqui poderíamos ter uma classe chamada MaterialRemovido que herda de Material, com
+		dois atributos específicos: data de Remoção e UsuarioGestor removedor.
+		Isso pode ser útil para se elaborar e manter um histórico de materiais que já foram pedidos
+		pelos usuários do sistema.
