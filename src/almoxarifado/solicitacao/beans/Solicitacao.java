@@ -1,16 +1,16 @@
 package almoxarifado.solicitacao.beans;
 import almoxarifado.material.beans.Material;
-import almoxarifado.usuario.beans.Usuario;
+import almoxarifado.usuario.beans.UsuarioAbstract;;
 
 public abstract class Solicitacao {
 	
 	private String numero;
 	private Material[] materiais;
-	private Usuario solicitante;
+	protected UsuarioAbstract solicitante;
 	private String data;
 	
 	public Solicitacao(String numero, Material[] materiais, 
-			Usuario solicitante, String data)
+			UsuarioAbstract solicitante, String data)
 	{
 		this.setNumero(numero);
 		this.setMateriais(materiais);
@@ -44,7 +44,7 @@ public abstract class Solicitacao {
 			this.materiais = materiais;
 	}
 	
-	public final Usuario getUsuario()
+	public final UsuarioAbstract getUsuario()
 	{
 		return this.solicitante;
 	}
@@ -65,7 +65,7 @@ public abstract class Solicitacao {
 	/*
 	 * implementar conforme o tipo de solicitação.
 	 */
-	public abstract void setUsuario(Usuario usuarioSolicitante);
+	public abstract void setUsuario(UsuarioAbstract usuarioSolicitante);
 	
 	/*
 	 * implementar conforme classe concreta
@@ -75,10 +75,10 @@ public abstract class Solicitacao {
 	/*
 	 * implementar conforme classe concreta
 	 */
-	public abstract boolean equals();
+	public abstract boolean equals(Object obj);
 		
 	/// Métodos privados ficam abaixo dessa linha
-	private final void imprimeMensagemDeErro(String msg)
+	protected final void imprimeMensagemDeErro(String msg)
 	{
 		System.out.println(">>> Erro em " + this.getClass() + ": " + msg +" <<<");
 	}

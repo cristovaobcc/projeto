@@ -3,7 +3,7 @@ import almoxarifado.material.beans.Material;
 
 public class RepositorioMateriais {
 	
-	private static final int TAMANHO = 1;
+	private static int TAMANHO = 1;
 	private Material[] materiais;
 	private int qtde;
 	private static RepositorioMateriais instance;

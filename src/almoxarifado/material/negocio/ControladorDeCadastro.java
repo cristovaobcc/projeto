@@ -9,7 +9,6 @@ public class ControladorDeCadastro {
 	private Usuario user;
 	private int codAutomatico;
 	
-	/// Dúvida: Devo implementar construtor com singleton?
 	public ControladorDeCadastro(Usuario u){
 		setRep(RepositorioMateriais.getInstance());
 		this.user = u;

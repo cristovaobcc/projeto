@@ -4,6 +4,7 @@ public abstract class UsuarioAbstract {
 	private String id;
 	private String nome;
 	private String senha;
+	protected String lotacao;
 	
 	public UsuarioAbstract(String id, String nome, String senha)
 	{
@@ -65,4 +66,6 @@ public abstract class UsuarioAbstract {
 	{
 		System.out.println(">>> Erro em " + this.getClass() + ": " + msg +" <<<");
 	}
+	
+	
 }
