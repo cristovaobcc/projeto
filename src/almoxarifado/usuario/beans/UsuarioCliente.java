@@ -1,19 +1,17 @@
 package almoxarifado.usuario.beans;
 
-import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
-
-public class UsuarioGestor extends UsuarioAbstract{
+public class UsuarioCliente extends UsuarioAbstract {
 	
 	private String lotacao;
 	
-	// Todo UsuarioGestor deve ser lotado no almoxarifado
-	public UsuarioGestor (String id, String nome, String senha)
+	public UsuarioCliente(String id, String nome, String senha, String lotacao)
 	{
 		super (id, nome, senha);
-		this.setLotacao("Almoxarifado");
+		this.setLotacao(lotacao);
 	}
 	
-	public void setLotacao(String lotacao){
+	public void setLotacao(String lotacao)
+	{
 		if (lotacao == null || lotacao.equals(""))
 			imprimeMensagemDeErro("Não pode passar 'lotacao' nula ou vazia!");
 		else
@@ -30,11 +28,5 @@ public class UsuarioGestor extends UsuarioAbstract{
 		return "[Id =" + super.getId() + "] [nome =" + super.getNome() +
 				"] [lotação =" + this.getLotacao() + "]";
 	}
-	
-	public void AlterarSolicitacao(SolicitacaoUsuarioCliente solicitacao)
-	{
-		//TODO: implementar 
-	}
-	
-	
+
 }

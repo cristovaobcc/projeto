@@ -36,9 +36,30 @@ public abstract class UsuarioAbstract {
 		this.senha = senha;
 	}
 	
+	public abstract String getLotacao();
+	
+	public abstract void setLotacao(String lotacao);
+	
 	public abstract String toString();
 	
-	public abstract boolean Equals();
+	// Dois UsuarioGestor são iguais quando possui a mesma id.
+	public final boolean equals(Object obj)
+	{
+		if (obj == this)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsuarioGestor other = (UsuarioGestor) obj;
+		if (this.getId() == null){
+			if (other.getId() != null)
+				return false;
+		} else if (!this.getId().equals(other.getId() ) )
+			return false;
+	
+		return true;
+	}
 	
 	protected final void imprimeMensagemDeErro(String msg)
 	{
