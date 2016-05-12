@@ -1,5 +1,4 @@
 package almoxarifado.solicitacao.repositorio;
-import almoxarifado.material.beans.Material;
 import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
 
 public class RepositorioSolicitacoesUsuCliente {

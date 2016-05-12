@@ -1,6 +1,7 @@
 package almoxarifado.solicitacao.beans;
 import almoxarifado.material.beans.Material;
 import almoxarifado.usuario.beans.UsuarioAbstract;
+import almoxarifado.usuario.beans.UsuarioCliente;
 import almoxarifado.usuario.beans.UsuarioGestor;
 
 public class SolicitacaoUsuarioCliente extends Solicitacao {
@@ -8,12 +9,16 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 	// Toda solicitação de UsuarioCliente é atendida por algum UsuarioGestor
 	private UsuarioGestor atendente;
 	private UsuarioGestor avaliador;
+	private boolean atendida;
+	private boolean confirmar;
 	// private UsuarioCliente solicitante;
 	
 	public SolicitacaoUsuarioCliente(String numero, Material[] materiais, 
 			UsuarioAbstract solicitante, String data)
 	{
 		super(numero, materiais, solicitante, data);
+		this.setAtendida(false);
+		this.setConfirmar(false);
 	}
 	
 	public void setAvaliador(UsuarioGestor avaliador)
@@ -46,11 +51,35 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 	
 	public void setUsuario(UsuarioAbstract usuarioSolicitante)
 	{
-		if (usuarioSolicitante != null){
+		if (usuarioSolicitante != null && usuarioSolicitante instanceof UsuarioCliente){
 			super.solicitante = usuarioSolicitante;
 		}
 		else
-			super.imprimeMensagemDeErro("setUsuario: não pode passar atendente nulo!");
+			super.imprimeMensagemDeErro("setUsuario: não pode passar obj nulo ou != de UsuarioCliente!");
+	}
+	
+	/* só quem muda a configuração de atendida é o UsuárioGestor
+	 * implementar no controlador de 
+	 */
+	public void setAtendida(boolean s)
+	{
+		this.atendida = s;
+	}
+	
+	public boolean getAtendida()
+	{
+		return this.atendida;
+	}
+	
+	public void setConfirmar(boolean s)
+	{
+		this.confirmar = s;
+	}
+	
+	// só que
+	public boolean getConfirmar()
+	{
+		return this.confirmar;
 	}
 	
 	public String toString()

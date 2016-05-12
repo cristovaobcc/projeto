@@ -4,13 +4,13 @@ import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
 import almoxarifado.solicitacao.repositorio.RepositorioSolicitacoesUsuCliente;
 import almoxarifado.usuario.beans.UsuarioCliente;
 
-public class ControladorDeSolicitacoesUsuarioCliente {
+public class ControladorDeSolicitacoesParaUsuarioCliente {
 	
 	private int codAutomatico;
 	private RepositorioSolicitacoesUsuCliente rep;
 	private UsuarioCliente user;
 	
-	public ControladorDeSolicitacoesUsuarioCliente(UsuarioCliente user)
+	public ControladorDeSolicitacoesParaUsuarioCliente(UsuarioCliente user)
 	{
 		this.setUsuarioCliente(user);
 		this.setRepositorio(RepositorioSolicitacoesUsuCliente.getInstance());
@@ -53,7 +53,7 @@ public class ControladorDeSolicitacoesUsuarioCliente {
 	public boolean inserirSolicitacao(SolicitacaoUsuarioCliente s)
 	{
 		boolean inserido = false;
-		if ( s != null){
+		if ( s != null && s.getConfirmar()){
 			if( rep.buscar (s.getNumero() ) == null){
 				s.setUsuario(this.user);
 				s.setNumero(Integer.toString(this.getCodAutomatico()));
@@ -65,7 +65,14 @@ public class ControladorDeSolicitacoesUsuarioCliente {
 		return inserido;
 	}
 	
-	
+	/**
+	 * Altera atributo confirmar para true.
+	 * @param s SolicitacaoUsuarioCliente
+	 */
+	public void confirmarSolicitacao(SolicitacaoUsuarioCliente s)
+	{
+		s.setConfirmar(true);
+	}
 	
 	/// métodos privados e auxiliares vão abaixo dessa linha
 	protected final void imprimeMensagemDeErro(String msg)
