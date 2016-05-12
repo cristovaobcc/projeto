@@ -82,6 +82,25 @@ public class RepositorioMateriais {
 			}
 		System.out.println("\n-------------------------------------");
 	}
+	
+	
+	/**
+	 * Recebe um material m e verifica se existe no 
+	 * repositorio e se a quantidade qtde é menor ou igual
+	 * a quantidade de material solicitado contida. Caso
+	 * seja, devolve true; contrário, false.
+	 * @param m
+	 * @param qtde
+	 * @return
+	 */
+	public boolean verificaMaterial(Material m, int qtde)
+	{
+		boolean matBuscado = false;
+		Material outro = this.buscar(m.getCodigo());
+		if (outro != null && outro.getQtde() >= qtde)
+			matBuscado = true;
+		return matBuscado;
+	}
 
 /// MÉTODOS AUXILIARES VÃO ABAIXO DESSA LINHA
 			

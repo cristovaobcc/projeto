@@ -1,5 +1,4 @@
 package almoxarifado.solicitacao.beans;
-import almoxarifado.material.beans.Material;
 import almoxarifado.usuario.beans.UsuarioAbstract;
 import almoxarifado.usuario.beans.UsuarioCliente;
 import almoxarifado.usuario.beans.UsuarioGestor;
@@ -13,10 +12,10 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 	private boolean confirmar;
 	// private UsuarioCliente solicitante;
 	
-	public SolicitacaoUsuarioCliente(String numero, Material[] materiais, 
+	public SolicitacaoUsuarioCliente(String numero,
 			UsuarioAbstract solicitante, String data)
 	{
-		super(numero, materiais, solicitante, data);
+		super(numero, solicitante, data);
 		this.setAtendida(false);
 		this.setConfirmar(false);
 	}

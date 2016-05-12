@@ -9,11 +9,10 @@ public abstract class Solicitacao {
 	protected UsuarioAbstract solicitante;
 	private String data;
 	
-	public Solicitacao(String numero, Material[] materiais, 
-			UsuarioAbstract solicitante, String data)
+	public Solicitacao(String numero, UsuarioAbstract solicitante, String data)
 	{
 		this.setNumero(numero);
-		this.setMateriais(materiais);
+		this.setMateriais();
 		this.setUsuario(solicitante);
 		this.setData(data);
 	}
@@ -36,12 +35,12 @@ public abstract class Solicitacao {
 		return this.materiais;
 	}
 	
-	public final void setMateriais(Material[] materiais)
+	private void setMateriais()
 	{
 		if (materiais == null)
 			imprimeMensagemDeErro("Não pode passar array nulo!");
 		else
-			this.materiais = materiais;
+			this.materiais = new Material[1];
 	}
 	
 	public final UsuarioAbstract getUsuario()
@@ -60,6 +59,11 @@ public abstract class Solicitacao {
 			imprimeMensagemDeErro("Não pode passar data nula!");
 		else
 			this.data = data;
+	}
+	
+	// TODO: terminar implementação
+	public void inserirMaterial(Material m){
+		
 	}
 	
 	/*

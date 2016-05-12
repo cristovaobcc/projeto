@@ -3,12 +3,16 @@ package almoxarifado.solicitacao.negocio;
 import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
 import almoxarifado.solicitacao.repositorio.RepositorioSolicitacoesUsuCliente;
 import almoxarifado.usuario.beans.UsuarioCliente;
+import almoxarifado.material.beans.Material;
+import almoxarifado.material.repositorio.RepositorioMateriais;
 
 public class ControladorDeSolicitacoesParaUsuarioCliente {
 	
+	private final String TEMP = "99999999999"; // usado no método gerarSolicitacao!
 	private int codAutomatico;
 	private RepositorioSolicitacoesUsuCliente rep;
 	private UsuarioCliente user;
+	
 	
 	public ControladorDeSolicitacoesParaUsuarioCliente(UsuarioCliente user)
 	{
@@ -66,12 +70,40 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 	}
 	
 	/**
+	 * Recebe uma data e devolve uma SolicitacaoUsuarioCliente 
+	 * com o seu numero igual TEMP. Esta é uma solicitação temporária.
+	 * @param data
+	 * @return
+	 */
+	public SolicitacaoUsuarioCliente gerarSolicitacao(String data){
+		SolicitacaoUsuarioCliente s = new SolicitacaoUsuarioCliente(this.TEMP, this.user, data);
+		return s;
+	}
+	
+	/**
 	 * Altera atributo confirmar para true.
 	 * @param s SolicitacaoUsuarioCliente
 	 */
 	public void confirmarSolicitacao(SolicitacaoUsuarioCliente s)
 	{
 		s.setConfirmar(true);
+	}
+	
+	/**
+	 * Insere um material m na solicitação de cliente s.
+	 * @param m
+	 * @param qtde
+	 * @param s
+	 * @param rep
+	 * @return
+	 */
+	public boolean inserirMaterial (Material m, int qtde,
+			SolicitacaoUsuarioCliente s, RepositorioMateriais rep)
+	{
+		boolean inserido = false;
+		if (rep.verificaMaterial(m, qtde))
+			s.inserirMaterial(m);
+		return inserido;
 	}
 	
 	/// métodos privados e auxiliares vão abaixo dessa linha
