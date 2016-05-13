@@ -66,6 +66,12 @@ public abstract class Solicitacao {
 		
 	}
 	
+	public boolean removerMaterial(Material m){
+		boolean removido = false;
+		
+		return removido;
+	}
+	
 	/*
 	 * implementar conforme o tipo de solicitação.
 	 */

@@ -54,6 +54,12 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 		return rep.buscar(numero);
 	}
 	
+	/**
+	 * Insere solicitacao s no repositorio de solicitações.
+	 * Devolve true se inserida com sucesso, e false se não.
+	 * @param s
+	 * @return
+	 */
 	public boolean inserirSolicitacao(SolicitacaoUsuarioCliente s)
 	{
 		boolean inserido = false;
@@ -101,9 +107,22 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 			SolicitacaoUsuarioCliente s, RepositorioMateriais rep)
 	{
 		boolean inserido = false;
-		if (rep.verificaMaterial(m, qtde))
+		if (m != null && rep.verificaMaterial(m, qtde))
 			s.inserirMaterial(m);
 		return inserido;
+	}
+	
+	/**
+	 * remove o material m da solicitacao s.
+	 * Devolve true se removeu e false se não.
+	 * @param m
+	 * @param s
+	 * @return
+	 */
+	public boolean removerMaterial (Material m, SolicitacaoUsuarioCliente s){
+		boolean removido = false;
+		
+		return removido;
 	}
 	
 	/// métodos privados e auxiliares vão abaixo dessa linha
