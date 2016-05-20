@@ -4,7 +4,8 @@ import almoxarifado.material.beans.Material;
 public interface IRepositorioMateriais{
 	// Dúvida: como fica a implementação do padrão singleton
 	//  com o uso de interface?
-	// Devo manter o método abaixo?
+	// pelo o que percebi até então, continua da mesma forma.
+	// Devo manter o método  linha abaixo?
 	// public IRepositorioMateriais getInstance();
 
 	// métodos CRUD
@@ -18,12 +19,12 @@ public interface IRepositorioMateriais{
 	public boolean inserirMaterial(Material m);
 	
 	/**
-	 * Deve buscar um Material m e devolver true se 
-	 * foi encontrado, false caso contrario.
+	 * Deve buscar um Material m e devolver o Material buscado
+	 * se for encontrado, caso contrario, devolve null.
 	 * @param m
 	 * @return
 	 */
-	public boolean buscarMaterial(Material m);
+	public Material buscarMaterial(Material m);
 	
 	/**
 	 * Deve alterar um Material m que existe no

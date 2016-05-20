@@ -9,7 +9,7 @@ import almoxarifado.material.beans.Material;
  * @author cristovao
  *
  */
-public final class heapSortMateriaisCodigo {
+public final class HeapSortMateriaisCodigo {
 	
 		//TODO: corrigir o heapsort para ordenar por nome basico.
 		/**
