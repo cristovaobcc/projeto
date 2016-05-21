@@ -9,7 +9,6 @@ public class ControladorDeCadastroComInterface {
 	private IRepositorioMateriais rep;
 	private UsuarioGestor user;
 	private int codAutomatico;
-	private int verifica; // usado no método private verifica()
 	
 	/**
 	 * Inicializa controlador de repositorio.
@@ -47,8 +46,24 @@ public class ControladorDeCadastroComInterface {
 	{
 		return this.codAutomatico;
 	}
+
+	// TODO: trabalhar os critérios de inserção de uma forma melhor!
+	public boolean inserirMaterial(Material m)
+	{
+		boolean inserido = false;
+		Material aInserir = this.buscarMaterial(m);
+		if ( aInserir == null ){
+			if( rep.buscarMaterial(m) == null){
+				m.setIdCadastrador(this.user.getId());
+				m.setCodigo(Integer.toString(this.getCodAutomatico()));
+				this.atualizarCodMaterial();
+				rep.inserirMaterial(m);
+				inserido = true;
+			}
+		}
+		return inserido;
+	}
 	
-	//TODO: iniciar a implementação de negócios aqui!
 	/**
 	 * Recebe um material m e devolve um material
 	 * para a função chamadora. Caso o material não
@@ -61,46 +76,67 @@ public class ControladorDeCadastroComInterface {
 	public Material buscarMaterial(Material m)
 	{
 		Material buscado = null;
-		if (this.verificaCamposDeMaterial(m, 3)){
+		if ( this.verificaCamposDeMaterial(m, 1) ||
+			 this.verificaCamposDeMaterial(m,  2) ||
+			 this.verificaCamposDeMaterial(m, 3))
 			buscado = this.rep.buscarMaterial(m);
-		} else this.printErrorMsg("buscaMaterial");
 		return buscado;
+			
 	}
 	
-	public boolean inserirMaterial(Material m)
+	public boolean alterarMaterial(Material m)
 	{
-		boolean inserido = false;
-		if ( m != null){
-			if( rep.buscar (m.getCodigo() ) == null){
-				m.setIdCadastrador(this.user.getId());
-				m.setCodigo(Integer.toString(this.getCodAutomatico()));
-				this.atualizarCodMaterial();
-				rep.inserir(m);
-				inserido = true;
-			}
-		}
-		return inserido;
+		boolean alterado = false;
+		Material matAlterado = this.buscarMaterial(m);
+		if ( matAlterado != null ){
+			rep.alterarMaterial(matAlterado);
+			alterado = true;
+		}		
+		return alterado;
 	}
 	
+	public boolean removerMaterial(Material m)
+	{
+		boolean removido = false;
+		Material aRemover = this.buscarMaterial(m);
+		if (aRemover != null){
+			rep.removerMaterial(m);
+		}
+		return removido;
+	}
+	
+	/**
+	 * Método que é o coração das regras de negócios.
+	 * Recebe um material m e um inteiro numCampos:
+	 * 1 - examina se o codigo de m é nulo e menor que 4 caracteres;
+	 * 2 - examina se nomeBasico de m é nulo e menor que 4 caracteres;
+	 * 3 - examina se nomeModificador de m é nulo e menor que 4 caracteres;
+	 * retorna false caso a opção selecionada não seja verdadeira;
+	 * @param m
+	 * @param numCampos
+	 * @return
+	 */
+	//TODO: quando fizer a classe código fazer aqui a verificação completa da 
+	// opção 1.
 	private boolean verificaCamposDeMaterial(Material m, int numCampos)
 	{
 		boolean resultado = false;
-		this.verifica = numCampos;
 		if (m != null){
 			switch (numCampos){
-		case 3: 
-			if (m.getCodigo() != null)
-				this.verifica--;
-		case 2:
-			if (m.getNomeBasico() != null)
-				this.verifica--;
 		case 1:
-			if (m.getEsp().getNomeModificador() != null)
-				this.verifica--;
+			if (m.getCodigo() != null)
+				resultado = true; break;
+		case 2:
+			if (m.getNomeBasico() != null && m.getNomeBasico().length() > 3)
+				resultado = true; break;
+		case 3: 
+			if (m.getEsp().getNomeModificador() != null && 
+					m.getEsp().getNomeModificador().length() > 3)
+				resultado = true; break;
+		default:
+			printErrorMsg("VerificaCamposDeMaterial");
 		}
 		}
-		if (this.verifica == 0)
-			resultado = true;
 		return resultado;
 	}
 	
@@ -111,8 +147,7 @@ public class ControladorDeCadastroComInterface {
 	// controlador é que vai dar msg de erro!
 	private void printErrorMsg(String msg)
 	{
-		System.out.println("\n>>> Erro em :" +
-						msg + "! <<<");
+		System.out.println("\n>>> Erro em :" +	msg + "! <<<");
 	}
 
 }
