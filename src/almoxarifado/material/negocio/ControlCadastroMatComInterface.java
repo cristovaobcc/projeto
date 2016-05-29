@@ -2,31 +2,36 @@ package almoxarifado.material.negocio;
 
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.repositorio.IRepositorioMateriais;
+import almoxarifado.usuario.beans.NivelDeAcesso;
 import almoxarifado.usuario.beans.UsuarioOficial;
 
-public class ControladorDeCadastroComInterface {
+public class ControlCadastroMatComInterface {
 	
 	private IRepositorioMateriais rep;
-	private UsuarioOficial user;
 	private int codAutomatico;
+	private NivelDeAcesso nivel;
 	
 	/**
 	 * Inicializa controlador de repositorio.
-	 * Recebe o UsuarioOficial user e tipoDeRepositorio que sera configurado 
-	 * conforme valor passado:
-	 *  1 = é para configurar repositorio de array de materiais
-	 *  
-	 * @param user
-	 * @param tipoDeRepositorio
+	 * Recebe um IRepositorio Rep e um nivel de acesso de usuário.
+	 * @param rep 
+	 * @param niv
 	 */
-	public ControladorDeCadastroComInterface(UsuarioOficial user,
-			IRepositorioMateriais rep)
+	public ControlCadastroMatComInterface(IRepositorioMateriais rep, NivelDeAcesso niv)
 	{
+		this.setNivel(niv);
 		this.setRep(rep);
-		this.user = user;
 		this.codAutomatico = 1;
 	}
 	
+	public NivelDeAcesso getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(NivelDeAcesso nivel) {
+		this.nivel = nivel;
+	}
+
 	public IRepositorioMateriais getRep()
 	{
 		return this.rep;
@@ -36,25 +41,20 @@ public class ControladorDeCadastroComInterface {
 	{
 		this.rep = rep;
 	}
-	
-	public UsuarioOficial getUsuario()
-	{
-		return this.user;
-	}
-	
+			
 	public int getCodAutomatico()
 	{
 		return this.codAutomatico;
 	}
 
 	// TODO: trabalhar os critérios de inserção de uma forma melhor!
-	public boolean inserirMaterial(Material m)
+	public boolean inserirMaterial(Material m, UsuarioOficial user)
 	{
 		boolean inserido = false;
 		Material aInserir = this.buscarMaterial(m);
 		if ( aInserir == null ){
 			if( rep.buscarMaterial(m) == null){
-				m.setIdCadastrador(this.user.getId());
+				m.setIdCadastrador(user.getId());
 				m.setCodigo(Integer.toString(this.getCodAutomatico()));
 				this.atualizarCodMaterial();
 				rep.inserirMaterial(m);
