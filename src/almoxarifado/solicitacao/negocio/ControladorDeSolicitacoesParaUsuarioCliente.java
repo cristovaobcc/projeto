@@ -2,19 +2,19 @@ package almoxarifado.solicitacao.negocio;
 
 import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
 import almoxarifado.solicitacao.repositorio.RepositorioSolicitacoesUsuCliente;
-import almoxarifado.usuario.beans.UsuarioCliente;
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.repositorio.RepositorioMateriais;
+import almoxarifado.usuario.beans.UsuarioOficial;;
 
 public class ControladorDeSolicitacoesParaUsuarioCliente {
 	
 	private final String TEMP = "99999999999"; // usado no método gerarSolicitacao!
 	private int codAutomatico;
 	private RepositorioSolicitacoesUsuCliente rep;
-	private UsuarioCliente user;
+	private UsuarioOficial user;
 	
 	
-	public ControladorDeSolicitacoesParaUsuarioCliente(UsuarioCliente user)
+	public ControladorDeSolicitacoesParaUsuarioCliente(UsuarioOficial user)
 	{
 		this.setUsuarioCliente(user);
 		this.setRepositorio(RepositorioSolicitacoesUsuCliente.getInstance());
@@ -31,7 +31,7 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 		this.rep = rep;
 	}
 	
-	public void setUsuarioCliente(UsuarioCliente u)
+	public void setUsuarioCliente(UsuarioOficial u)
 	{
 		if (u == null)
 			imprimeMensagemDeErro("setUsuarioCliente, não pode passar cliente nulo)!");
@@ -39,7 +39,7 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 			this.user = u;
 	}
 	
-	public UsuarioCliente getUsuarioCliente()
+	public UsuarioOficial getUsuarioCliente()
 	{
 		return this.user;
 	}

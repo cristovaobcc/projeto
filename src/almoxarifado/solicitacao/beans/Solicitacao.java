@@ -1,15 +1,15 @@
 package almoxarifado.solicitacao.beans;
 import almoxarifado.material.beans.Material;
-import almoxarifado.usuario.beans.UsuarioAbstract;;
+import almoxarifado.usuario.beans.UsuarioOficial;;
 
 public abstract class Solicitacao {
 	
 	private String numero;
 	private Material[] materiais;
-	private UsuarioAbstract solicitante;
+	private UsuarioOficial solicitante;
 	private String data;
 	
-	public Solicitacao(String numero, UsuarioAbstract solicitante, String data)
+	public Solicitacao(String numero, UsuarioOficial solicitante, String data)
 	{
 		this.setNumero(numero);
 		this.setMateriais();
@@ -43,7 +43,7 @@ public abstract class Solicitacao {
 			this.materiais = new Material[1];
 	}
 	
-	public final UsuarioAbstract getUsuario()
+	public final UsuarioOficial getUsuario()
 	{
 		return this.solicitante;
 	}
@@ -75,7 +75,7 @@ public abstract class Solicitacao {
 	/*
 	 * implementar conforme o tipo de solicitação.
 	 */
-	public void setUsuario(UsuarioAbstract usuarioSolicitante)
+	public void setUsuario(UsuarioOficial usuarioSolicitante)
 	{
 		this.solicitante = usuarioSolicitante;
 	}

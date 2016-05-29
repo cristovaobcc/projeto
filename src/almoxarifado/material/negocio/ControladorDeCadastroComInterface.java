@@ -2,24 +2,24 @@ package almoxarifado.material.negocio;
 
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.repositorio.IRepositorioMateriais;
-import almoxarifado.usuario.beans.UsuarioGestor;
+import almoxarifado.usuario.beans.UsuarioOficial;
 
 public class ControladorDeCadastroComInterface {
 	
 	private IRepositorioMateriais rep;
-	private UsuarioGestor user;
+	private UsuarioOficial user;
 	private int codAutomatico;
 	
 	/**
 	 * Inicializa controlador de repositorio.
-	 * Recebe o UsuarioGestor user e tipoDeRepositorio que sera configurado 
+	 * Recebe o UsuarioOficial user e tipoDeRepositorio que sera configurado 
 	 * conforme valor passado:
 	 *  1 = é para configurar repositorio de array de materiais
 	 *  
 	 * @param user
 	 * @param tipoDeRepositorio
 	 */
-	public ControladorDeCadastroComInterface(UsuarioGestor user,
+	public ControladorDeCadastroComInterface(UsuarioOficial user,
 			IRepositorioMateriais rep)
 	{
 		this.setRep(rep);
@@ -37,7 +37,7 @@ public class ControladorDeCadastroComInterface {
 		this.rep = rep;
 	}
 	
-	public UsuarioGestor getUsuario()
+	public UsuarioOficial getUsuario()
 	{
 		return this.user;
 	}

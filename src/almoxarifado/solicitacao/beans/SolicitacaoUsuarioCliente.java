@@ -1,25 +1,25 @@
 package almoxarifado.solicitacao.beans;
-import almoxarifado.usuario.beans.UsuarioAbstract;
-import almoxarifado.usuario.beans.UsuarioGestor;
+import almoxarifado.usuario.beans.UsuarioOficial;
+
 
 public class SolicitacaoUsuarioCliente extends Solicitacao {
 	
-	// Toda solicitação de UsuarioCliente é atendida por algum UsuarioGestor
-	private UsuarioGestor atendente;
-	private UsuarioGestor avaliador;
+	// Toda solicitação de UsuarioCliente é atendida por algum UsuarioOficial
+	private UsuarioOficial atendente;
+	private UsuarioOficial avaliador;
 	private boolean atendida;
 	private boolean confirmar;
 	// private UsuarioCliente solicitante;
 	
 	public SolicitacaoUsuarioCliente(String numero,
-			UsuarioAbstract solicitante, String data)
+			UsuarioOficial solicitante, String data)
 	{
 		super(numero, solicitante, data);
 		this.setAtendida(false);
 		this.setConfirmar(false);
 	}
 	
-	public void setAvaliador(UsuarioGestor avaliador)
+	public void setAvaliador(UsuarioOficial avaliador)
 	{
 		//TODO: refinar implementação do avaliador.
 		if (avaliador != null){
@@ -29,12 +29,12 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 			super.imprimeMensagemDeErro("setAvaliador: nao pode passar avaliador nulo!");
 	}
 	
-	public UsuarioGestor getAvaliador()
+	public UsuarioOficial getAvaliador()
 	{
 		return this.avaliador;
 	}
 	
-	public void setAtendente(UsuarioGestor atendente){
+	public void setAtendente(UsuarioOficial atendente){
 		if (atendente != null){
 			this.atendente = atendente;
 		}
@@ -42,7 +42,7 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 			super.imprimeMensagemDeErro("setAtendente: não pode passar atendente nulo!");
 	}
 	
-	public UsuarioGestor getAtendente()
+	public UsuarioOficial getAtendente()
 	{
 		return this.atendente;
 	}
