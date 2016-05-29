@@ -57,30 +57,76 @@ public class Especificacao {
 
 	public void setUnidadeDeMedida(String unidadeDeMedida) {
 		this.unidadeDeMedida = unidadeDeMedida;
+	}	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((caracteristicasFisicas == null) ? 0 : caracteristicasFisicas.hashCode());
+		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
+		result = prime * result + ((nomeModificador == null) ? 0 : nomeModificador.hashCode());
+		result = prime * result + ((observacao == null) ? 0 : observacao.hashCode());
+		result = prime * result + ((unidadeDeMedida == null) ? 0 : unidadeDeMedida.hashCode());
+		return result;
 	}
 
-	/**
-	 * Duas especificações são iguais quando possuem os mesmos nomes modificadores.
-	 * 
-	 * @param comparado
-	 * @return
-	 */
-	public boolean equals(Especificacao comparado){
-		boolean resultado = false;
-		if (comparado != null)
-			resultado = this.nomeModificador.equals(comparado.getNomeModificador());
-		return resultado;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Especificacao)) {
+			return false;
+		}
+		Especificacao other = (Especificacao) obj;
+		if (caracteristicasFisicas == null) {
+			if (other.caracteristicasFisicas != null) {
+				return false;
+			}
+		} else if (!caracteristicasFisicas.equals(other.caracteristicasFisicas)) {
+			return false;
+		}
+		if (marca == null) {
+			if (other.marca != null) {
+				return false;
+			}
+		} else if (!marca.equals(other.marca)) {
+			return false;
+		}
+		if (nomeModificador == null) {
+			if (other.nomeModificador != null) {
+				return false;
+			}
+		} else if (!nomeModificador.equals(other.nomeModificador)) {
+			return false;
+		}
+		if (observacao == null) {
+			if (other.observacao != null) {
+				return false;
+			}
+		} else if (!observacao.equals(other.observacao)) {
+			return false;
+		}
+		if (unidadeDeMedida == null) {
+			if (other.unidadeDeMedida != null) {
+				return false;
+			}
+		} else if (!unidadeDeMedida.equals(other.unidadeDeMedida)) {
+			return false;
+		}
+		return true;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
 	@Override
 	public String toString() {
 		return "Especificacao [nomeModificador=" + nomeModificador + ", caracteristicasFisicas="
-				+ caracteristicasFisicas + ", Observacao=" + observacao + "]";
+				+ caracteristicasFisicas + ", observacao=" + observacao + ", marca=" + marca + ", unidadeDeMedida="
+				+ unidadeDeMedida + "]";
 	}
-	
-	
 	
 }

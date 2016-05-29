@@ -105,14 +105,14 @@ public class Material {
 	public void setIdCadastrador(String id){
 		this.idCadastrador = id;
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
-	public String toString() {
-		return "Material [nomeBasico=" + nomeBasico + ", codigo=" + codigo + ", qtde=" + qtde + ", esp=" + esp
-				+ ", dataDeAquisicao=" + dataDeAquisicao + ", idCadastrador=" + idCadastrador +"]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + ((esp == null) ? 0 : esp.hashCode());
+		return result;
 	}
 
 	/* 
@@ -122,20 +122,40 @@ public class Material {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Material)) {
 			return false;
+		}
 		Material other = (Material) obj;
 		if (codigo == null) {
-			if (other.getCodigo() != null)
+			if (other.codigo != null) {
 				return false;
-		} else if (!codigo.equals(other.getCodigo() ) && !this.esp.equals(other.getEsp() ) )
+			}
+		} else if (!codigo.equals(other.codigo)) {
 			return false;
+		}
+		if (esp == null) {
+			if (other.esp != null) {
+				return false;
+			}
+		} else if (!esp.equals(other.esp)) {
+			return false;
+		}
 		return true;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Material [nomeBasico=" + nomeBasico + ", codigo=" + codigo + ", qtde=" + qtde + ", esp=" + esp
+				+ ", dataDeAquisicao=" + dataDeAquisicao + ", idCadastrador=" + idCadastrador +"]";
+	}
 		
-	
 }

@@ -6,7 +6,7 @@ public abstract class Solicitacao {
 	
 	private String numero;
 	private Material[] materiais;
-	protected UsuarioAbstract solicitante;
+	private UsuarioAbstract solicitante;
 	private String data;
 	
 	public Solicitacao(String numero, UsuarioAbstract solicitante, String data)
@@ -75,7 +75,10 @@ public abstract class Solicitacao {
 	/*
 	 * implementar conforme o tipo de solicitação.
 	 */
-	public abstract void setUsuario(UsuarioAbstract usuarioSolicitante);
+	public void setUsuario(UsuarioAbstract usuarioSolicitante)
+	{
+		this.solicitante = usuarioSolicitante;
+	}
 	
 	/*
 	 * implementar conforme classe concreta
@@ -86,10 +89,14 @@ public abstract class Solicitacao {
 	 * implementar conforme classe concreta
 	 */
 	public abstract boolean equals(Object obj);
-		
+	
+	
+	
 	/// Métodos privados ficam abaixo dessa linha
 	protected final void imprimeMensagemDeErro(String msg)
 	{
 		System.out.println(">>> Erro em " + this.getClass() + ": " + msg +" <<<");
 	}
+	
+	
 }

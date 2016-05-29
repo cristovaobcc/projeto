@@ -145,6 +145,7 @@ public class ControladorDeCadastroComInterface {
 	}
 	
 	// controlador é que vai dar msg de erro!
+	
 	private void printErrorMsg(String msg)
 	{
 		System.out.println("\n>>> Erro em :" +	msg + "! <<<");

@@ -1,6 +1,5 @@
 package almoxarifado.solicitacao.beans;
 import almoxarifado.usuario.beans.UsuarioAbstract;
-import almoxarifado.usuario.beans.UsuarioCliente;
 import almoxarifado.usuario.beans.UsuarioGestor;
 
 public class SolicitacaoUsuarioCliente extends Solicitacao {
@@ -47,16 +46,7 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 	{
 		return this.atendente;
 	}
-	
-	public void setUsuario(UsuarioAbstract usuarioSolicitante)
-	{
-		if (usuarioSolicitante != null && usuarioSolicitante instanceof UsuarioCliente){
-			super.solicitante = usuarioSolicitante;
-		}
-		else
-			super.imprimeMensagemDeErro("setUsuario: não pode passar obj nulo ou != de UsuarioCliente!");
-	}
-	
+			
 	/* só quem muda a configuração de atendida é o UsuárioGestor
 	 * implementar no controlador de 
 	 */
