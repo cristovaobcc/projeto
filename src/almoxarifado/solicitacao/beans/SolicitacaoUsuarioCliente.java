@@ -1,16 +1,29 @@
 package almoxarifado.solicitacao.beans;
 import almoxarifado.usuario.beans.UsuarioOficial;
 
-
-public class SolicitacaoUsuarioCliente extends Solicitacao {
+/**
+ * Classe que representa uma solicitação de materiais
+ * feita por usuários do Almoxarifado. Deve ser usuada por 
+ * Usuario com nivel de Acesso
+ * Gestor e Solicitante.
+ * @author cristovao
+ *
+ */
+public final class SolicitacaoUsuarioCliente extends Solicitacao {
 	
-	// Toda solicitação de UsuarioCliente é atendida por algum UsuarioOficial
-	private UsuarioOficial atendente;
-	private UsuarioOficial avaliador;
+	private UsuarioOficial atendente; // Usuario que atende a solicitação
+	private UsuarioOficial avaliador; // Usuario que avalia a quantidade de materais solicitados.
 	private boolean atendida;
 	private boolean confirmar;
-	// private UsuarioCliente solicitante;
-	
+	/**
+	 * Contrutor do objeto SolicitacaoUsuarioCliente. Também configura os
+	 * campos 'atendida' e 'confirmar' como false. O usuário
+	 * deste objeto tb deve configurar os campos 'atendente' e 'avaliador'
+	 * separadamente.
+	 * @param numero
+	 * @param solicitante
+	 * @param data
+	 */
 	public SolicitacaoUsuarioCliente(String numero,
 			UsuarioOficial solicitante, String data)
 	{
@@ -19,83 +32,88 @@ public class SolicitacaoUsuarioCliente extends Solicitacao {
 		this.setConfirmar(false);
 	}
 	
+	/**
+	 * Configura o campo 'avaliador' com um UsuarioOficial passado.
+	 * @param avaliador UsuarioOficial a ser configurado.
+	 */
 	public void setAvaliador(UsuarioOficial avaliador)
 	{
-		//TODO: refinar implementação do avaliador.
-		if (avaliador != null){
-			this.avaliador = avaliador;
-		}
-		else
-			super.imprimeMensagemDeErro("setAvaliador: nao pode passar avaliador nulo!");
+		this.avaliador = avaliador;
 	}
-	
+	/**
+	 * Devolve um UsuarioOficial configurado para o campo 'avaliador' 
+	 * da SolicitacaoUsuarioCliente.
+	 * Caso não tenha sido configurado devolve null.
+	 * @return
+	 */
 	public UsuarioOficial getAvaliador()
 	{
 		return this.avaliador;
 	}
 	
+	
+	/**
+	 * Configura o campo 'atendente' com um UsuarioOficial passado.
+	 * @param atendente UsuarioOficial a ser configurado.
+	 */
 	public void setAtendente(UsuarioOficial atendente){
-		if (atendente != null){
-			this.atendente = atendente;
-		}
-		else
-			super.imprimeMensagemDeErro("setAtendente: não pode passar atendente nulo!");
+		this.atendente = atendente;
 	}
 	
+	/**
+	 * Devolve um UsuarioOficial configurado para o campo 'atendente'
+	 * da SolicitacaoUsuarioCliente.
+	 * Caso não tenha sido configurado devolve null.
+	 * @return
+	 */
 	public UsuarioOficial getAtendente()
 	{
 		return this.atendente;
 	}
-			
-	/* só quem muda a configuração de atendida é o UsuárioGestor
-	 * implementar no controlador de 
+	
+	/**
+	 * Configura o campo 'atendida' com o boolean 's' passado.
+	 * @param s
 	 */
 	public void setAtendida(boolean s)
 	{
 		this.atendida = s;
 	}
 	
+	/**
+	 * Devolve o valor configurado para o campo 'atendida'.
+	 * @return
+	 */
 	public boolean getAtendida()
 	{
 		return this.atendida;
 	}
 	
+	/**
+	 * Configura o campo 'confirmar' com o boolean 's' passado.
+	 * @param s
+	 */
 	public void setConfirmar(boolean s)
 	{
 		this.confirmar = s;
 	}
 	
-	// só que
+	/**
+	 * Devolve o valor configurado para o campo 'confirmar'.		
+	 * @return
+	 */
 	public boolean getConfirmar()
 	{
 		return this.confirmar;
 	}
-	
-	public String toString()
-	{
-		return "[numero = " + this.getNumero() + "] [data = " + this.getData() +
-				"[materiais = " + this.getMateriais().toString() + "] [solicitante = " +
-				this.getUsuario().toString() + "]";
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SolicitacaoUsuarioCliente [atendente=" + atendente + ", avaliador=" + avaliador + ", atendida="
+				+ atendida + ", confirmar=" + confirmar + ", toString()=" + super.toString() + "]";
 	}
-	
-	
-	public boolean equals(Object obj)
-	{
-		boolean resultado;
-		if (obj == null)
-			resultado = false;
-		else if (obj == this)
-			resultado = true;
-		else if (this.getClass() != obj.getClass())
-			resultado = false;
-		else {
-			SolicitacaoUsuarioCliente other = (SolicitacaoUsuarioCliente) obj;
-			if (this.getNumero().equals(other.getNumero()))
-				resultado = true;
-			else
-				resultado = false;
-		}
-		return resultado;
-	}
-	
+
 }

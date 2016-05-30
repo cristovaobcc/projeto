@@ -121,12 +121,15 @@ public class Especificacao {
 		}
 		return true;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Especificacao [nomeModificador=" + nomeModificador + ", caracteristicasFisicas="
 				+ caracteristicasFisicas + ", observacao=" + observacao + ", marca=" + marca + ", unidadeDeMedida="
-				+ unidadeDeMedida + "]";
+				+ unidadeDeMedida + ", toString()=" + super.toString() + "]";
 	}
-	
+		
 }
