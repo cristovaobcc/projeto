@@ -62,7 +62,7 @@ public abstract class Solicitacao {
 	 * Devolve o UsuarioOficial da Solicitação.
 	 * @return
 	 */
-	public final UsuarioOficial getUsuario()
+	public final UsuarioOficial getSolicitante()
 	{
 		return this.solicitante;
 	}
@@ -182,13 +182,6 @@ public abstract class Solicitacao {
 				return false;
 			}
 		} else if (!numero.equals(other.numero)) {
-			return false;
-		}
-		if (solicitante == null) {
-			if (other.solicitante != null) {
-				return false;
-			}
-		} else if (!solicitante.equals(other.solicitante)) {
 			return false;
 		}
 		return true;

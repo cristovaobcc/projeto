@@ -1,18 +1,18 @@
 package almoxarifado.fachada;
 
 import almoxarifado.material.beans.Material;
-import almoxarifado.material.negocio.ControlCadastroMatComInterface;
+import almoxarifado.material.negocio.ControlCadastroMatGestor;
 import almoxarifado.material.repositorio.IRepositorioMateriais;
 import almoxarifado.usuario.beans.UsuarioOficial;
 
 public class FachadaUsuarioGestor {
 	
 	private static FachadaUsuarioGestor instance;
-	private ControlCadastroMatComInterface contCadMaterial;
+	private ControlCadastroMatGestor contCadMaterial;
 	
 	private FachadaUsuarioGestor(UsuarioOficial user, IRepositorioMateriais rep)
 	{
-		this.contCadMaterial = new ControlCadastroMatComInterface(rep, user.getNivelDeAcesso());
+		this.contCadMaterial = new ControlCadastroMatGestor(rep, user.getNivelDeAcesso());
 	}
 	
 	public static FachadaUsuarioGestor getInstance(UsuarioOficial user, IRepositorioMateriais rep)

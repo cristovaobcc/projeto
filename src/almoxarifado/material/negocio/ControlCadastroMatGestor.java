@@ -5,7 +5,7 @@ import almoxarifado.material.repositorio.IRepositorioMateriais;
 import almoxarifado.usuario.beans.NivelDeAcesso;
 import almoxarifado.usuario.beans.UsuarioOficial;
 
-public class ControlCadastroMatComInterface {
+public class ControlCadastroMatGestor {
 	
 	private IRepositorioMateriais rep;
 	private int codAutomatico;
@@ -17,7 +17,7 @@ public class ControlCadastroMatComInterface {
 	 * @param rep 
 	 * @param niv
 	 */
-	public ControlCadastroMatComInterface(IRepositorioMateriais rep, NivelDeAcesso niv)
+	public ControlCadastroMatGestor(IRepositorioMateriais rep, NivelDeAcesso niv)
 	{
 		this.setNivel(niv);
 		this.setRep(rep);

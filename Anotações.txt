@@ -3,9 +3,43 @@
 		em algum controlador tenho que capturar apenas a ID do UsuarioGestor que acessou
 		o sistema e repassar ao material que ele está cadastrando;
 
-
 |-> Verificar a viabilidade de desenvolver uma parte do código que restaura materiais indevidamente 
 		removidos. Aqui poderíamos ter uma classe chamada MaterialRemovido que herda de Material, com
 		dois atributos específicos: data de Remoção e UsuarioGestor removedor.
 		Isso pode ser útil para se elaborar e manter um histórico de materiais que já foram pedidos
 		pelos usuários do sistema.
+		
+|-> Decidir se o usuário terá poderes de mudar o código de materiais já cadastrado.
+
+|-> É na fachada que vou dizer qual o tipo de dado que vai ser processado pelo controlador.
+
+|-> Ajustar no projeto os métodos equals e toString nas classes usando @Override. Colocar toString
+		de forma que eu possa capturar logs de erros.
+		
+|-> Ver como ArrayList pode entrar  nos repositórios já feitos. 
+
+|-> Lançar exceções(assunto da última aula) no projeto. As exceções são tratadas nas fachadas!		
+
+|->  Próximos passos:
+	1) Fazer CRUD com interface do ramos solicitação.
+	2) Fazer Controlador levando em conta o passo 1 acima
+	3) Fazer fachada de usuarioSolicitante com campo do controlador acima
+
+|-> A fachada de usuários é que contém os métodos para verificação do tipo de usuário e deve devolver
+		o nível de acesso de cada um.
+		
+(OK)|-> Ajustar no projeto: criar uma classe Enum com níveis de acesso e usá-la como campo de instancia
+		de Usuário.O acesso de usuário se dividirão em 3:
+			1) Master: cadastra todos os usuários e visualiza todos os usuários já
+					criados. Este perfil concede/controla o acesso de todos os outros usuários.
+			2) Gestor: é o usuário que trabalha no almoxarifado e realiza as funções previstas
+					no UML
+			3) Solicitante: é o usuário que solicita materiais ao almoxarifado.
+
+(OK)|-> Tirar o protected de Solicitação.  
+
+(OK)|-> Ajustar no projeto ArrayList para objetos Solicitação 
+C -> retornar boolean
+R -> retornar material
+U -> retornar boolean
+D -> retornar boolean

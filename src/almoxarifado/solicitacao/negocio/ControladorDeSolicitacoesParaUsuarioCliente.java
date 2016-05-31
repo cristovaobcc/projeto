@@ -1,47 +1,24 @@
 package almoxarifado.solicitacao.negocio;
 
 import almoxarifado.solicitacao.beans.SolicitacaoUsuarioCliente;
-import almoxarifado.solicitacao.repositorio.RepositorioSolicitacoesUsuCliente;
+import almoxarifado.solicitacao.repositorio.IRepositorioSolicitacoesUsCliente;
 import almoxarifado.material.beans.Material;
-import almoxarifado.material.repositorio.RepositorioMateriais;
-import almoxarifado.usuario.beans.UsuarioOficial;;
+import almoxarifado.material.repositorio.IRepositorioMateriais;
+import almoxarifado.usuario.beans.NivelDeAcesso;
+import almoxarifado.usuario.beans.UsuarioOficial;
 
-public class ControladorDeSolicitacoesParaUsuarioCliente {
+public final class ControladorDeSolicitacoesParaUsuarioCliente {
 	
-	private final String TEMP = "99999999999"; // usado no método gerarSolicitacao!
+	private IRepositorioSolicitacoesUsCliente rep;
 	private int codAutomatico;
-	private RepositorioSolicitacoesUsuCliente rep;
-	private UsuarioOficial user;
+	private NivelDeAcesso nivel;
 	
-	
-	public ControladorDeSolicitacoesParaUsuarioCliente(UsuarioOficial user)
+	public ControladorDeSolicitacoesParaUsuarioCliente
+				(IRepositorioSolicitacoesUsCliente rep)
 	{
-		this.setUsuarioCliente(user);
-		this.setRepositorio(RepositorioSolicitacoesUsuCliente.getInstance());
+		this.setNivel(NivelDeAcesso.SOLICITANTE);
+		this.setRep(rep);
 		this.codAutomatico = 0;
-	}
-	
-	public RepositorioSolicitacoesUsuCliente getRep()
-	{
-		return this.rep;
-	}
-	
-	private void setRepositorio(RepositorioSolicitacoesUsuCliente rep)
-	{
-		this.rep = rep;
-	}
-	
-	public void setUsuarioCliente(UsuarioOficial u)
-	{
-		if (u == null)
-			imprimeMensagemDeErro("setUsuarioCliente, não pode passar cliente nulo)!");
-		else
-			this.user = u;
-	}
-	
-	public UsuarioOficial getUsuarioCliente()
-	{
-		return this.user;
 	}
 	
 	public int getCodAutomatico()
@@ -49,13 +26,28 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 		return this.codAutomatico;
 	}
 	
-	public SolicitacaoUsuarioCliente buscaNumSolicitacaoCliente(String numero)
+	public IRepositorioSolicitacoesUsCliente getRep()
 	{
-		return rep.buscar(numero);
+		return this.rep;
+	}
+	
+	private void setRep(IRepositorioSolicitacoesUsCliente rep)
+	{
+		this.rep = rep;
+	}
+	
+	private void setNivel(NivelDeAcesso n)
+	{
+		this.nivel = n;
 	}
 	
 	/**
-	 * Insere solicitacao s no repositorio de solicitações.
+	 * Insere solicitacao s no repositorio de solicitações
+	 * atender as seguintes condições:
+	 * 	1) Não for nulo
+	 * 	2) Não tiver o mesmo número de outra solicitação no repositório
+	 * 	3) Tiver pelo menos 1 material
+	 *  4) O nivel do usuario solicitante for igual a "S"(SOLICITANTE) 
 	 * Devolve true se inserida com sucesso, e false se não.
 	 * @param s
 	 * @return
@@ -63,26 +55,25 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 	public boolean inserirSolicitacao(SolicitacaoUsuarioCliente s)
 	{
 		boolean inserido = false;
-		if ( s != null && s.getConfirmar()){
-			if( rep.buscar (s.getNumero() ) == null){
-				s.setUsuario(this.user);
-				s.setNumero(Integer.toString(this.getCodAutomatico()));
-				this.atualizarNumSolicitacao();
-				rep.inserirSolicitacao(s);
-				inserido = true;
-			}
+		SolicitacaoUsuarioCliente sol = this.rep.buscarSolicitacao(s);
+		if (s != null && sol == null &&
+				s.getSolicitante().getNivelDeAcesso()==this.nivel &&
+				s.getMateriais().size() > 0){
+			this.atualizarNumSolicitacao();
+			s.setNumero (Integer.toString (this.getCodAutomatico() ) );
+			rep.inserirSolicitacao(s);
+			inserido = true;
 		}
-		return inserido;
+		return inserido; 
 	}
 	
 	/**
-	 * Recebe uma data e devolve uma SolicitacaoUsuarioCliente 
-	 * com o seu numero igual TEMP. Esta é uma solicitação temporária.
+	 *
 	 * @param data
 	 * @return
 	 */
-	public SolicitacaoUsuarioCliente gerarSolicitacao(String data){
-		SolicitacaoUsuarioCliente s = new SolicitacaoUsuarioCliente(this.TEMP, this.user, data);
+	public SolicitacaoUsuarioCliente gerarSolicitacao(UsuarioOficial u, String data){
+		SolicitacaoUsuarioCliente s = new SolicitacaoUsuarioCliente(null, u, data);
 		return s;
 	}
 	
@@ -104,11 +95,10 @@ public class ControladorDeSolicitacoesParaUsuarioCliente {
 	 * @return
 	 */
 	public boolean inserirMaterial (Material m, int qtde,
-			SolicitacaoUsuarioCliente s, RepositorioMateriais rep)
+			SolicitacaoUsuarioCliente s, IRepositorioMateriais rep)
 	{
 		boolean inserido = false;
-		if (m != null && rep.verificaMaterial(m, qtde))
-			s.inserirMaterial(m);
+		
 		return inserido;
 	}
 	
