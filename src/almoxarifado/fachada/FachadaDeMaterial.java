@@ -1,6 +1,7 @@
 package almoxarifado.fachada;
 
 import almoxarifado.material.beans.Material;
+import almoxarifado.material.excecoes.MatNEncExc;
 import almoxarifado.material.negocio.ControladorDeCadastro;
 import almoxarifado.usuario.beans.Usuario;
 
@@ -52,8 +53,8 @@ public class FachadaDeMaterial {
 	 * @return
 	 * @see almoxarifado.material.negocio.ControladorDeCadastro#removerMaterial(java.lang.String)
 	 */
-	public boolean removerMaterial(String cod) {
-		return controlCadastro.removerMaterial(cod);
+	public boolean removerMaterial(String cod) throws MatNEncExc {
+			return controlCadastro.removerMaterial(cod);
 	}
 	
 	/**

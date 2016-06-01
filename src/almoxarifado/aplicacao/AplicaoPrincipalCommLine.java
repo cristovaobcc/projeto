@@ -20,8 +20,6 @@ public class AplicaoPrincipalCommLine {
 	
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
-		
-
 	}
 	
 	public static void testaCadastroComFachada()
@@ -190,7 +188,7 @@ public class AplicaoPrincipalCommLine {
 			if(m != null)
 			break;
 		case 2:
-			
+			buscar(f, input);
 		case 3:
 			break;
 		default: 

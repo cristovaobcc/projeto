@@ -1,5 +1,6 @@
 package almoxarifado.material.negocio;
 import almoxarifado.material.beans.Material;
+import almoxarifado.material.excecoes.MatNEncExc;
 import almoxarifado.material.repositorio.RepositorioMateriais;
 import almoxarifado.usuario.beans.Usuario;
 
@@ -69,10 +70,16 @@ public class ControladorDeCadastro {
 	}
 	
 	public boolean removerMaterial (String cod)
+		throws MatNEncExc
 	{
 		boolean removido = false;
 		if (cod != null){
 			removido = rep.remover(cod);
+			if (!removido){
+				MatNEncExc mne = new MatNEncExc(cod);
+				throw mne; 
+			}
+				
 		}
 		return removido;
 	}

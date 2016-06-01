@@ -3,11 +3,11 @@
  * de negócios do ramo material. 
  */
 
-package projetoIP2;
+package projetoIP2;/*
 import java.util.Scanner;
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.repositorio.RepositorioMateriais;
-
+*/
 public class Rascunho01 {
 	/* DESCOMENTE COM 2 BARRAS NO INICIO DESTA LINHA E...
 	/// CÓDIGO PARA TESTAR REPOSITÓRIO

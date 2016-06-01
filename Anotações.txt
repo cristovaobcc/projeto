@@ -15,21 +15,20 @@
 
 |-> Ajustar no projeto os métodos equals e toString nas classes usando @Override. Colocar toString
 		de forma que eu possa capturar logs de erros.
-		
-|-> Ver como ArrayList pode entrar  nos repositórios já feitos. 
-
-|-> Lançar exceções(assunto da última aula) no projeto. As exceções são tratadas nas fachadas!		
 
 |-> A fachada de usuários é que contém os métodos para verificação do tipo de usuário e deve devolver
 		o nível de acesso de cada um.
 
-|-> Alterar a forma de se fazer a busca de materiais:
-	1) Na interface a assinatura deve ser:
+|-> Lançar exceções(assunto da última aula) no projeto. As exceções são tratadas nas fachadas!		
+
+(OK)|-> Alterar a forma de se fazer a busca de materiais:
+	   1) Na interface a assinatura deve ser:
 		public ArrayList<Material> buscarMaterial(Material m);
-	2) Busca deve ser executada se  algum dos seguintes campos forem preenchidos:
-	  a) Codigo; b) Nome; c) Nome Modificador;
-	  e devolve um ArrayList dos objetos que contenha alguns dos campos equivalentes.
-	
+	   2) Busca deve ser executada se  algum dos seguintes campos forem preenchidos:
+	    a) Codigo; b) Nome; c) Nome Modificador;
+	    e devolve um ArrayList dos objetos que contenha alguns dos campos equivalentes.
+		
+(OK)|-> Ver como ArrayList pode entrar  nos repositórios já feitos. 	
 
 (OK)|->  Próximos passos:
 	1) Fazer CRUD com interface do ramos solicitação.

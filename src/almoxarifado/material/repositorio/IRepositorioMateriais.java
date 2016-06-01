@@ -1,4 +1,5 @@
 package almoxarifado.material.repositorio;
+import java.util.ArrayList;
 import almoxarifado.material.beans.Material;
 
 public interface IRepositorioMateriais{
@@ -12,35 +13,55 @@ public interface IRepositorioMateriais{
 	/**
 	 * Deve inserir um Material m e devolver true se
 	 * foi inserido, false caso contrario (o material já
-	 * existe no repositorio). 
+	 * existe no repositorio).
 	 * @param m
 	 * @return
 	 */
 	public boolean inserirMaterial(Material m);
 	
 	/**
-	 * Deve buscar um Material m e devolver o Material buscado
-	 * se for encontrado, caso contrario, devolve null.
+	 * Deve buscar um Material m algum dos campos abaixo preenchidos:
+	 * 	1) Código
+	 *  2) Nome Básico
+	 *  3) Nome Modificador
+	 * e devolver um ArrayList<Material>  
+	 * contendo o(s) material(is) buscados.
+	 * O tamanho do ArrayList deve ser conferido para saber
+	 * se foi encontrado algum material segundo os campos preenchidos.
+	 * @param m material a ser buscado
+	 * @return ArrayList<Material>
+	 */
+	public ArrayList<Material> buscarMateriais(Material m);
+	
+	/**
+	 * Deve encontrar um Material que existe no
+	 * Repositorio igual ao código do Material m
+	 * passado.
+	 * Devolve o material encontrado.
+	 * Se não for encontrado devolve null.
 	 * @param m
 	 * @return
 	 */
 	public Material buscarMaterial(Material m);
 	
 	/**
-	 * Deve alterar um Material m que existe no
-	 * repositorio, devolve true se foi alterado
-	 * e false caso contrario.
-	 * @param m
-	 * @return
+	 * Deve alterar um Material que existe no
+	 * Repositorio igual ao código do Material m
+	 * passado.
+	 * Devolve true se foi alterado,
+	 * false caso contrario.
+	 * @param m Material
+	 * @return boolean
 	 */
 	public boolean alterarMaterial(Material m);
 	
 	/**
 	 * Deve remover um Material m que existe no
-	 * Repositorio, devolve true se foi removido,
+	 * Repositorio baseado no código.
+	 * Devolve true se foi removido,
 	 * false caso contrario.
-	 * @param m
-	 * @return
+	 * @param m Material
+	 * @return boolean
 	 */
 	public boolean removerMaterial(Material m);
 	

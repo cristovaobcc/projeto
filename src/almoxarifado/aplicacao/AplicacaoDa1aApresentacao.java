@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import almoxarifado.fachada.FachadaDeMaterial;
 import almoxarifado.material.beans.Material;
+import almoxarifado.material.excecoes.MatNEncExc;
 import almoxarifado.usuario.beans.Usuario;
 
 public class AplicacaoDa1aApresentacao {
@@ -98,9 +99,15 @@ public class AplicacaoDa1aApresentacao {
 		System.out.println("\n--- Remover Material ---");
 		System.out.print("\nCodigo: ");
 		String cod = input.nextLine();
-		if (fachada.removerMaterial(cod))
-			System.out.println("\n<<< operação feita com sucesso! >>>");
-		else System.out.println(">>> material não localizado <<<");
+		try{
+			if (fachada.removerMaterial(cod))
+				System.out.println("\n<<< operação feita com sucesso! >>>");
+		}
+		catch (MatNEncExc mne){
+			mne.getMessage();
+			System.out.println("Código [" + mne.getCodigo() + "] inválido!");
+		}
+		
 	}
 	
 	public static void alterar(FachadaDeMaterial fachada, Scanner input){
