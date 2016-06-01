@@ -44,4 +44,9 @@ public interface IRepositorioMateriais{
 	 */
 	public boolean removerMaterial(Material m);
 	
+	/**
+	 * Deve listar todos os materiais cadastrados no
+	 * repositório.
+	 */
+	public void listar();
 }

@@ -105,6 +105,11 @@ public class ControlCadastroMatGestor {
 		return removido;
 	}
 	
+	public void listar()
+	{
+		rep.listar();
+	}
+	
 	/**
 	 * Método que é o coração das regras de negócios.
 	 * Recebe um material m e um inteiro numCampos:

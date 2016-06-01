@@ -101,6 +101,11 @@ public class RepMateriaisArray implements IRepositorioMateriais{
 		return resultado;
 	}
 	
+	public void listar()
+	{
+		for(Material m: this.materiais)
+			System.out.println(m.toString());
+	}
 	/**
 	 * Recebe um material e devolve o índice do material
 	 * verificado no array. Caso não haja o material no

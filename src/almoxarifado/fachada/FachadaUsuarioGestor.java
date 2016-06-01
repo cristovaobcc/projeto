@@ -9,10 +9,12 @@ public class FachadaUsuarioGestor {
 	
 	private static FachadaUsuarioGestor instance;
 	private ControlCadastroMatGestor contCadMaterial;
+	private UsuarioOficial user;
 	
 	private FachadaUsuarioGestor(UsuarioOficial user, IRepositorioMateriais rep)
 	{
 		this.contCadMaterial = new ControlCadastroMatGestor(rep, user.getNivelDeAcesso());
+		this.setUser(user);
 	}
 	
 	public static FachadaUsuarioGestor getInstance(UsuarioOficial user, IRepositorioMateriais rep)
@@ -20,6 +22,16 @@ public class FachadaUsuarioGestor {
 		if (instance == null)
 			instance = new FachadaUsuarioGestor(user, rep);
 		return instance;
+	}
+	
+	private void setUser(UsuarioOficial user)
+	{
+		this.user = user;
+	}
+	
+	public UsuarioOficial getUser()
+	{
+		return this.user;
 	}
 	
 	public boolean inserirMaterial(Material m, UsuarioOficial user)
@@ -40,6 +52,16 @@ public class FachadaUsuarioGestor {
 	public boolean removerMaterial(Material m)
 	{
 		return this.contCadMaterial.removerMaterial(m);
+	}
+	
+	public int getCodigoAutomatico()
+	{
+		return this.contCadMaterial.getCodAutomatico();
+	}
+	
+	public void listarMaterial()
+	{
+		this.contCadMaterial.listar();
 	}
 	
 }

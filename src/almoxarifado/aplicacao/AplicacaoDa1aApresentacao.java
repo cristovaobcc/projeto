@@ -6,7 +6,7 @@ import almoxarifado.fachada.FachadaDeMaterial;
 import almoxarifado.material.beans.Material;
 import almoxarifado.usuario.beans.Usuario;
 
-public class PrincipalComandLine {
+public class AplicacaoDa1aApresentacao {
 
 	private static Scanner input;
 	private static int opcao;
