@@ -1,14 +1,15 @@
 package almoxarifado.aplicacao;
-
+/*
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import almoxarifado.fachada.FachadaDeMaterial;
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.excecoes.MatNEncExc;
 import almoxarifado.usuario.beans.Usuario;
-
+*/
 public class AplicacaoDa1aApresentacao {
-
+/*
 	private static Scanner input;
 	private static int opcao;
 	
@@ -69,7 +70,7 @@ public class AplicacaoDa1aApresentacao {
 		System.out.print("\nNome básico: ");
 		String nome = input.nextLine();
 		System.out.print("\nData de Aquisicao: ");
-		String data = input.nextLine();
+		LocalDate data = input.nextLine();
 		System.out.println("\nQuantidade: ");
 		int qtde = input.nextInt();
 		input.nextLine();
@@ -136,5 +137,5 @@ public class AplicacaoDa1aApresentacao {
 	}
 	
 	
-
+*/
 }

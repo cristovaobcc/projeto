@@ -9,12 +9,12 @@ import almoxarifado.fachada.FachadaUsuarioGestor;
 import almoxarifado.material.beans.Especificacao;
 import almoxarifado.material.beans.Material;
 import almoxarifado.material.repositorio.IRepositorioMateriais;
-import almoxarifado.material.repositorio.RepMateriaisArray;
+import almoxarifado.material.repositorio.RepositorioMateriaisArray;
 import almoxarifado.material.repositorio.RepositorioMateriais;
 import almoxarifado.usuario.beans.NivelDeAcesso;
 import almoxarifado.usuario.beans.UsuarioOficial;
 
-public class AplicaoPrincipalCommLine {
+public class AplicacaoPrincipalCommLine {
 	private static Scanner input;
 	private static int opcao;
 	
@@ -26,7 +26,7 @@ public class AplicaoPrincipalCommLine {
 	{
 		UsuarioOficial uGerente = new UsuarioOficial("IdTeste", "NomeUsuario", 
 				"<Senha>", "<Lotacao>", NivelDeAcesso.GESTOR);
-		IRepositorioMateriais rep = RepMateriaisArray.getInstance();
+		IRepositorioMateriais rep = RepositorioMateriaisArray.getInstance();
 		FachadaUsuarioGestor fachada = FachadaUsuarioGestor.getInstance(uGerente, rep);
 		selecaoDeMenu(input, fachada);
 	}

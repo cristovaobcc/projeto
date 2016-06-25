@@ -3,7 +3,12 @@ import almoxarifado.material.beans.Material;
 import almoxarifado.material.excecoes.MatNEncExc;
 import almoxarifado.material.repositorio.RepositorioMateriais;
 import almoxarifado.usuario.beans.Usuario;
-
+/**
+ * Classe utilizada para fazer a primeira apresentação do projeto.
+ * 
+ * @author cristovao
+ *
+ */
 public class ControladorDeCadastro {
 	
 	private RepositorioMateriais rep;

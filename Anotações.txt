@@ -19,7 +19,7 @@
 |-> A fachada de usuários é que contém os métodos para verificação do tipo de usuário e deve devolver
 		o nível de acesso de cada um.
 
-|-> Lançar exceções(assunto da última aula) no projeto. As exceções são tratadas nas fachadas!		
+|-> Lançar exceções(assunto da última aula) no projeto. As exceções são tratadas nas aplicações!		
 
 (OK)|-> Alterar a forma de se fazer a busca de materiais:
 	   1) Na interface a assinatura deve ser:

@@ -7,21 +7,21 @@ import almoxarifado.material.beans.Material;
  * @author cristovao
  *
  */
-public class RepMateriaisArray implements IRepositorioMateriais{
+public class RepositorioMateriaisArray implements IRepositorioMateriais{
 	
-	private static RepMateriaisArray instance;
+	private static RepositorioMateriaisArray instance;
 	private ArrayList<Material> materiais;
 
 	
-	private RepMateriaisArray()
+	private RepositorioMateriaisArray()
 	{
 		this.materiais = new ArrayList<Material>();
 	}
 	
-	public static RepMateriaisArray getInstance()
+	public static RepositorioMateriaisArray getInstance()
 	{
 		if (instance == null)
-			instance = new RepMateriaisArray();
+			instance = new RepositorioMateriaisArray();
 		return instance;
 	}
 	

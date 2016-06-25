@@ -1,15 +1,16 @@
 package almoxarifado.material.beans;
+import java.time.*;
 
 public class Material {
 	private String nomeBasico;
 	private String codigo;
 	private int qtde;
 	private Especificacao esp;
-	private String dataDeAquisicao;
+	private LocalDate dataDeAquisicao;
 	private String idCadastrador;
 	
 	public Material(String nomeBasico, String codigo, int qtde, Especificacao esp, 
-			String dataDeAquisicao, String idCadastrador) 
+			LocalDate dataDeAquisicao, String idCadastrador) 
 	{
 		this.setNomeBasico(nomeBasico);
 		this.setCodigo(codigo);
@@ -78,14 +79,14 @@ public class Material {
 	/**
 	 * @return the dataDeAquisicao
 	 */
-	public String getDataDeAquisicao() {
+	public LocalDate getDataDeAquisicao() {
 		return dataDeAquisicao;
 	}
 
 	/**
 	 * @param dataDeAquisicao the dataDeAquisicao to set
 	 */
-	public void setDataDeAquisicao(String dataDeAquisicao) {
+	public void setDataDeAquisicao(LocalDate dataDeAquisicao) {
 		this.dataDeAquisicao = dataDeAquisicao;
 	}
 	
