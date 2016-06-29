@@ -1,6 +1,9 @@
 package almoxarifado.sistema.material.beans;
 
-public class Especificacao {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Especificacao implements Serializable {
 	private String nomeModificador;
 	private String caracteristicasFisicas;
 	private String observacao;

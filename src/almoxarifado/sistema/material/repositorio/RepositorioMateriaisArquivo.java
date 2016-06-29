@@ -35,7 +35,7 @@ public final class RepositorioMateriaisArquivo implements IRepositorioMateriais,
 	{
 		RepositorioMateriaisArquivo instanciaLocal = null;
 		
-		File in = new File("materais.dat");
+		File in = new File("materiais.dat");
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {
@@ -60,7 +60,7 @@ public final class RepositorioMateriaisArquivo implements IRepositorioMateriais,
 		if (instancia == null) {
 			return;
 		}
-		File out = new File ("contas.dat");
+		File out = new File ("materiais.dat");
 		if (!out.exists() ) {
 			try {
 				out.createNewFile();

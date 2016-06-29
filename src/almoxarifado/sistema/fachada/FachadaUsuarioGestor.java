@@ -6,6 +6,8 @@ import almoxarifado.sistema.material.excecoes.MaterialNomeInvalidoException;
 import almoxarifado.sistema.material.excecoes.MaterialNuloException;
 import almoxarifado.sistema.material.negocio.ControladorCadastroMaterialGestor;
 import almoxarifado.sistema.material.repositorio.IRepositorioMateriais;
+import almoxarifado.sistema.material.repositorio.RepositorioMateriaisArquivo;
+import almoxarifado.sistema.usuario.beans.NivelDeAcesso;
 import almoxarifado.sistema.usuario.beans.UsuarioOficial;
 
 public class FachadaUsuarioGestor {
@@ -20,6 +22,14 @@ public class FachadaUsuarioGestor {
 		this.setUser(user);
 	}
 	
+	private FachadaUsuarioGestor()
+	{
+		this.contCadMaterial = new ControladorCadastroMaterialGestor(RepositorioMateriaisArquivo.getInstance(),
+					NivelDeAcesso.GESTOR);
+		this.setUser(null);
+		
+	}
+	
 	public static FachadaUsuarioGestor getInstance(UsuarioOficial user, IRepositorioMateriais rep)
 	{
 		if (instance == null)
@@ -27,6 +37,11 @@ public class FachadaUsuarioGestor {
 		return instance;
 	}
 	
+	public static FachadaUsuarioGestor getInstance(){
+		if (instance == null)
+			instance = new FachadaUsuarioGestor();
+		return instance;
+	}
 	private void setUser(UsuarioOficial user)
 	{
 		this.user = user;
