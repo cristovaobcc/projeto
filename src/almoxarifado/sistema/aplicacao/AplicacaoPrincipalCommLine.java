@@ -1,5 +1,5 @@
 package almoxarifado.sistema.aplicacao;
-
+/*
 import java.util.Scanner;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
@@ -205,3 +205,4 @@ public class AplicacaoPrincipalCommLine {
 	
 	
 }
+*/

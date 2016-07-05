@@ -34,8 +34,8 @@ public final class RepositorioMateriaisArquivo implements IRepositorioMateriais,
 	private static RepositorioMateriaisArquivo lerDoArquivo()
 	{
 		RepositorioMateriaisArquivo instanciaLocal = null;
-		
 		File in = new File("materiais.dat");
+		
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {

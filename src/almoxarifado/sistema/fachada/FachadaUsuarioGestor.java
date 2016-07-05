@@ -1,5 +1,7 @@
 package almoxarifado.sistema.fachada;
 
+import java.util.List;
+
 import almoxarifado.sistema.material.beans.Material;
 import almoxarifado.sistema.material.excecoes.MaterialCodigoInvalidoException;
 import almoxarifado.sistema.material.excecoes.MaterialNomeInvalidoException;
@@ -33,7 +35,7 @@ public class FachadaUsuarioGestor {
 	public static FachadaUsuarioGestor getInstance(UsuarioOficial user, IRepositorioMateriais rep)
 	{
 		if (instance == null)
-			instance = new FachadaUsuarioGestor(user, rep);
+			instance = new FachadaUsuarioGestor();
 		return instance;
 	}
 	
@@ -84,6 +86,11 @@ public class FachadaUsuarioGestor {
 	public void listarMaterial()
 	{
 		this.contCadMaterial.listar();
+	}
+	
+	public List<Material> listarTodos()
+	{
+		return this.contCadMaterial.listarTodos();
 	}
 	
 }

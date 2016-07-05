@@ -94,10 +94,10 @@ public class Material implements Serializable {
 	
 	/**
 	 * 
-	 * @param id
+	 * 
 	 * @return
 	 */
-	public String getIdCadastrador(String id){
+	public String getIdCadastrador(){
 		return this.idCadastrador;
 	}
 	

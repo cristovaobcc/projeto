@@ -191,6 +191,10 @@ public final class ControladorCadastroMaterialGestor {
 	{
 		rep.listar();
 	}
+	
+	public ArrayList<Material> listarTodos(){
+		return this.rep.listarParaArrayList();
+	}
 
 	/**
 	 * Configura o campo rep.
