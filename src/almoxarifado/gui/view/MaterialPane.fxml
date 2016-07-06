@@ -15,7 +15,7 @@
                   <TableView fx:id="materialTable" layoutX="-25.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="codigoColumn" prefWidth="100.0" text="Codigo" />
-                      <TableColumn fx:id="nomeBasicoColumn" prefWidth="100.0" text="NomeBasico" />
+                      <TableColumn fx:id="nomeBasicoColumn" prefWidth="100.0" text="Nome Básico" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -57,8 +57,7 @@
                   <HBox layoutX="179.0" layoutY="259.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <children>
                         <Button layoutX="179.0" layoutY="259.0" mnemonicParsing="false" text="Cadastrar..." />
-                        <Button fx:id="AlterarMaterial" onAction="#editarMaterial" layoutX="268.0" layoutY="259.0"
-                        				 mnemonicParsing="false" text="Alterar..." />
+                        <Button fx:id="AlterarMaterial" layoutX="268.0" layoutY="259.0" mnemonicParsing="false" onAction="#editarMaterial" text="Alterar..." />
                         <Button layoutX="341.0" layoutY="259.0" mnemonicParsing="false" onAction="#removerMaterial" text="Remover..." />
                      </children>
                   </HBox>

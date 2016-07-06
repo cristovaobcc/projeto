@@ -135,8 +135,13 @@ public final class RepositorioMateriaisArquivo implements IRepositorioMateriais,
 
 	@Override
 	public void alterarMaterial(Material m) {
-		int posicaoMaterialExistente = this.materiais.indexOf(m.getCodigo());
-		this.materiais.set(posicaoMaterialExistente, m);
+		// int posicaoMaterialExistente = this.materiais.indexOf(m.getCodigo());
+		for(Material aux : this.materiais){
+			if(m.getCodigo().equals(aux.getCodigo())){
+				aux = m;
+			}
+		}
+		// this.materiais.set(posicaoMaterialExistente, m);
 		this.salvarNoArquivo();
 	}
 
