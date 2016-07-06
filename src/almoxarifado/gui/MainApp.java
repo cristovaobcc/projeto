@@ -2,6 +2,7 @@ package almoxarifado.gui;
 
 import java.io.IOException;
 
+import almoxarifado.gui.view.MaterialEditDialogController;
 import almoxarifado.gui.view.MaterialPaneController;
 import almoxarifado.sistema.fachada.FachadaUsuarioGestor;
 import almoxarifado.sistema.material.beans.Material;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
@@ -39,7 +41,7 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 			this.rootLayout = (BorderPane) loader.load();
 
-			// Mostra a scene (cena) contendo oroot layout.
+			// Mostra a scene (cena) contendo o nó rootlayout.
 			Scene scene = new Scene(rootLayout);
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
@@ -49,7 +51,7 @@ public class MainApp extends Application {
 	}
 
 	/**
-	 * Mostra o material overview dentro do root layout.
+	 * Mostra o MaterialPane dentro do root layout.
 	 */
 	public void carregarMaterialPane() {
 		try {
@@ -81,5 +83,36 @@ public class MainApp extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+
+	public boolean abrirMaterialEditDialog(Material materialSelecionado) {
+		try{
+			
+			// carrega conteúdo da caixa de diálogo
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/MaterialEditDialog.fxml"));
+			BorderPane conteudoDialog = (BorderPane) loader.load();
+			
+			// Cria o palco de diálogo
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Alterar material");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(this.primaryStage);
+			Scene scene = new Scene(conteudoDialog);
+			dialogStage.setScene(scene);
+			
+			// configura o material no controlador.
+			MaterialEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setMaterial(materialSelecionado);
+			
+			dialogStage.showAndWait();
+			
+			return controller.confirmarClicado();
+		} catch (IOException e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

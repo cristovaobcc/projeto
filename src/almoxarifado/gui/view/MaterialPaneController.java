@@ -15,11 +15,11 @@ import java.util.List;
 import almoxarifado.gui.MainApp;
 import almoxarifado.sistema.fachada.FachadaUsuarioGestor;
 import almoxarifado.sistema.material.beans.Material;
-
+import javafx.scene.control.Button;
 
 
 public class MaterialPaneController {
-	
+
 	private MainApp mainApp;
 
 	private FachadaUsuarioGestor fachada = FachadaUsuarioGestor.getInstance();
@@ -41,6 +41,8 @@ public class MaterialPaneController {
 	private Label dataDeCadastroLabel;
 	@FXML
 	private Label idCadastradorLabel;
+	@FXML 
+	private Button AlterarMaterial;
 
 	/**
 	 * É chamado pela aplicação principal para dar uma referência de volta a si mesmo.
@@ -50,7 +52,7 @@ public class MaterialPaneController {
 	public void setMainApp(MainApp m) {
 		this.mainApp = m;
 	}
-	
+
 	/**
 	 * Inicializa a classe controller. Este método é chamado automaticamente
 	 *  após o arquivo fxml ter sido carregado.
@@ -89,22 +91,77 @@ public class MaterialPaneController {
 			idCadastradorLabel.setText("");
 		}
 	}
-	
+
 	public void setDados(ObservableList<Material> dadosMaterial) {
-    	materialTable.setItems(dadosMaterial);
-    }	
+		materialTable.setItems(dadosMaterial);
+	}	
 
 	public void atualizarTabela() {
-        final List<Material> items = materialTable.getItems();
-        if( items == null || items.size() == 0) return;
+		final List<Material> items = materialTable.getItems();
+		if( items == null || items.size() == 0) return;
 
-        final Material item = materialTable.getItems().get(0);
-        items.remove(0);
-        Platform.runLater(new Runnable(){
-            @Override
-            public void run() {
-                items.add(0, item);
-            }
-        });
-     }
+		final Material item = materialTable.getItems().get(0);
+		items.remove(0);
+		Platform.runLater(new Runnable(){
+			@Override
+			public void run() {
+				items.add(0, item);
+			}
+		});
+	}
+
+	@FXML 
+	public void removerMaterial() {
+		try {
+			Material materialSelecionado = this.materialTable.getSelectionModel().getSelectedItem();
+			
+			if (materialSelecionado != null){
+				// chama a fachada para remover o material
+				this.fachada.removerMaterial(materialSelecionado);
+				
+				// remove from table
+				this.materialTable.getItems().remove(materialTable.getSelectionModel().getSelectedIndex());
+			} else {
+				// nothing selected.
+				Alert alert = new Alert (AlertType.WARNING);
+				alert.initOwner(mainApp.getPrimaryStage());
+				alert.setTitle("Sem seleção");
+				alert.setHeaderText("Nenhum material selecionado!");
+				alert.setContentText("Por favor, selecione um material na tabela.");
+				
+				alert.showAndWait();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML 
+	public void editarMaterial() {
+		Material materialSelecionado = this.materialTable.getSelectionModel().getSelectedItem();
+		int indiceSelecionado = this.materialTable.getSelectionModel().getSelectedIndex();
+		
+		if (materialSelecionado != null) {
+			boolean alterarClicado = this.mainApp.abrirMaterialEditDialog(materialSelecionado);
+			if (alterarClicado){
+				// chama fachada
+				this.fachada.alterarMaterial(materialSelecionado);
+				
+				this.mostrarDetalhesMaterial(materialSelecionado);
+				
+				this.atualizarTabela();
+			}
+		} else {
+			
+			// nada foi selecionado
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(this.mainApp.getPrimaryStage());
+			alert.setHeaderText("Nenhum material selecionado!");
+			alert.setContentText("Por favor, selecione um material da tabela");
+			
+			alert.showAndWait();
+		}
+	}
+	
+	
 }
